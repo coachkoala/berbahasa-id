@@ -97,5 +97,4 @@ quiz:
       - "To only work with one restaurant"
     correctIndex: 1
     explanation: "The team hopes to expand the app to more cities in Indonesia next year."
-microExercise: "Coba tulis 1 kalimat sendiri menggunakan salah satu kosakata di atas (misalnya: leftover, reduce, atau donate)."
 ---

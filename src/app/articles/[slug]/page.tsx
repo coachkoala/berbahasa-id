@@ -1,13 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import {
-  getAllArticles,
-  getArticleBySlug,
-  getRelatedVocabulary,
-  getAdjacentArticles,
-  formatDate,
-} from "@/lib/articles";
+import { getAllArticles, getArticleBySlug, getAdjacentArticles, formatDate } from "@/lib/articles";
 import { AccordionSection } from "@/components/AccordionSection";
 import { CoverImage } from "@/components/CoverImage";
 import { NewsSection } from "@/components/NewsSection";
@@ -17,8 +11,6 @@ import { PracticeReading } from "@/components/PracticeReading";
 import { ConversationBubbles } from "@/components/ConversationBubbles";
 import { ExpressionsList } from "@/components/ExpressionsList";
 import { Quiz } from "@/components/Quiz";
-import { MicroExercise } from "@/components/MicroExercise";
-import { RelatedVocabulary } from "@/components/RelatedVocabulary";
 
 export function generateStaticParams() {
   return getAllArticles().map((article) => ({ slug: article.slug }));
@@ -46,7 +38,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   if (!article) notFound();
 
   const allArticles = getAllArticles();
-  const relatedVocabulary = getRelatedVocabulary(article, allArticles);
   const { newer, older } = getAdjacentArticles(article, allArticles);
 
   return (
@@ -151,17 +142,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         <AccordionSection icon="❓" title="Quiz" defaultOpen={false}>
           <Quiz questions={article.quiz} />
         </AccordionSection>
-
-        <AccordionSection icon="✍️" title="Micro-Exercise" defaultOpen={false}>
-          <p className="mb-3 text-xs text-slate-400">Latihan produksi bahasa singkat — belum ada validasi otomatis.</p>
-          <MicroExercise slug={article.slug} prompt={article.microExercise} />
-        </AccordionSection>
-
-        {relatedVocabulary.length > 0 && (
-          <AccordionSection icon="🔁" title="Related Vocabulary">
-            <RelatedVocabulary entries={relatedVocabulary} />
-          </AccordionSection>
-        )}
       </div>
     </article>
   );

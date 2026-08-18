@@ -97,5 +97,4 @@ quiz:
       - "Home cooking takes less time than eating out"
     correctIndex: 0
     explanation: "Home-cooked meals often contain less oil, sugar, and salt, which may lead to healthier eating patterns."
-microExercise: "Ringkas berita ini dalam 1 kalimat versimu sendiri, seolah kamu menceritakannya ke teman."
 ---

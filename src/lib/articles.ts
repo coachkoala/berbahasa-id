@@ -64,7 +64,6 @@ type ArticleFrontmatter = {
   conversation: ConversationLine[];
   expressions: UsefulExpression[];
   quiz: QuizQuestion[];
-  microExercise: string;
 };
 
 export type Article = ArticleFrontmatter;
@@ -96,36 +95,6 @@ export function getAdjacentArticles(article: Article, allArticles: Article[]) {
     newer: index > 0 ? allArticles[index - 1] : undefined,
     older: index >= 0 && index < allArticles.length - 1 ? allArticles[index + 1] : undefined,
   };
-}
-
-export type RelatedVocabularyEntry = {
-  word: string;
-  articles: { slug: string; titleEn: string; date: string }[];
-};
-
-/**
- * Naive spaced-repetition hint: for each vocabulary word in `article`, find
- * earlier articles whose own vocabulary list already contains that word.
- */
-export function getRelatedVocabulary(article: Article, allArticles: Article[]): RelatedVocabularyEntry[] {
-  const earlierArticles = allArticles.filter(
-    (candidate) => candidate.slug !== article.slug && candidate.date < article.date,
-  );
-
-  const entries: RelatedVocabularyEntry[] = [];
-
-  for (const vocab of article.vocabulary) {
-    const word = vocab.word.toLowerCase();
-    const matches = earlierArticles
-      .filter((candidate) => candidate.vocabulary.some((v) => v.word.toLowerCase() === word))
-      .map((candidate) => ({ slug: candidate.slug, titleEn: candidate.titleEn, date: candidate.date }));
-
-    if (matches.length > 0) {
-      entries.push({ word: vocab.word, articles: matches });
-    }
-  }
-
-  return entries;
 }
 
 export function formatDate(dateStr: string): string {
