@@ -10,8 +10,8 @@ source:
   url: "https://www.tribunnews.com/nasional/7869833/8-tuntutan-bem-ui-pada-demo-18-agustus-besok-evaluasi-mbg-dan-kdmp-hentikan-represifitas-tni-polri"
 coverImage:
   src: "/images/articles/bem-ui-demo-bundaran-hi.jpg"
-  alt: "Mahasiswa berunjuk rasa di depan gedung DPRD (foto ilustrasi, bukan foto kejadian di Bundaran HI)"
-  credit: "Foto ilustrasi — unjuk rasa mahasiswa di Medan, Feb 2025, bukan foto kejadian di Bundaran HI. Foto: Nafisathallah / Wikimedia Commons, CC BY-SA 4.0"
+  alt: "Massa berunjuk rasa di Bundaran HI, Jakarta (foto ilustrasi lokasi, bukan foto kejadian hari ini)"
+  credit: "Foto ilustrasi lokasi Bundaran HI (unjuk rasa petani, 2004) — bukan foto kejadian demo BEM UI hari ini. Foto: Jonathan McIntosh / Wikimedia Commons, CC BY 2.5"
 news:
   - en: "On Tuesday, students from the University of Indonesia's Student Executive Board (BEM UI) held a large demonstration at Bundaran HI in central Jakarta. The action, called \"Merebut Kemerdekaan\" (Reclaiming Independence), took place one day after Indonesia celebrated its 81st Independence Day. Students gathered first at a university field before marching toward the roundabout, and organizers asked participants to wear black clothing."
     id: "Pada hari Selasa, mahasiswa dari Badan Eksekutif Mahasiswa Universitas Indonesia (BEM UI) menggelar demonstrasi besar di Bundaran HI, Jakarta Pusat. Aksi bertajuk \"Merebut Kemerdekaan\" ini berlangsung sehari setelah Indonesia merayakan HUT ke-81 Kemerdekaannya. Mahasiswa berkumpul lebih dulu di lapangan kampus sebelum berjalan menuju bundaran, dan panitia meminta peserta mengenakan pakaian serba hitam."
