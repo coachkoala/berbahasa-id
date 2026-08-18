@@ -6,7 +6,6 @@ import { AccordionSection } from "@/components/AccordionSection";
 import { CoverImage } from "@/components/CoverImage";
 import { NewsSection } from "@/components/NewsSection";
 import { VocabularyList } from "@/components/VocabularyList";
-import { Flashcards } from "@/components/Flashcards";
 import { PracticeReading } from "@/components/PracticeReading";
 import { ConversationBubbles } from "@/components/ConversationBubbles";
 import { ExpressionsList } from "@/components/ExpressionsList";
@@ -129,10 +128,6 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
         <AccordionSection icon="💬" title="Dialogue">
           <ConversationBubbles lines={article.conversation} />
-        </AccordionSection>
-
-        <AccordionSection icon="🃏" title="Flashcard" defaultOpen={false}>
-          <Flashcards items={article.vocabulary} />
         </AccordionSection>
 
         <AccordionSection icon="🗣️" title="Useful Expressions" defaultOpen={false}>
