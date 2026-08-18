@@ -40,20 +40,20 @@ export function Quiz({ questions }: { questions: QuizQuestion[] }) {
 
   if (finished) {
     const ratio = score / questions.length;
-    const message = ratio === 1 ? "🎉 Sempurna!" : ratio >= 0.7 ? "✅ Bagus!" : "📚 Coba lagi!";
+    const message = ratio === 1 ? "Sempurna." : ratio >= 0.7 ? "Bagus." : "Coba lagi.";
 
     return (
-      <div className="rounded-2xl bg-emerald-50 p-6 text-center">
-        <div className="text-4xl font-bold text-emerald-700">
+      <div className="rounded-[16px] border-[3px] border-[#111] bg-[#FFD100] p-5 text-center">
+        <div className="font-[family-name:var(--font-display)] text-4xl font-bold text-[#111]">
           {score}/{questions.length}
         </div>
-        <p className="mt-2 text-sm text-slate-700">{message}</p>
+        <p className="mt-1.5 text-sm font-semibold text-[#111]">{message}</p>
         <button
           type="button"
           onClick={handleReset}
-          className="mt-4 rounded-lg bg-emerald-600 px-5 py-2 text-sm font-semibold text-white hover:bg-emerald-700"
+          className="mt-3.5 rounded-full border-[2.5px] border-[#111] bg-[#111] px-5 py-2.5 font-[family-name:var(--font-display)] text-[13px] font-bold text-white"
         >
-          🔄 Reset Quiz
+          Ulangi Kuis
         </button>
       </div>
     );
@@ -61,19 +61,20 @@ export function Quiz({ questions }: { questions: QuizQuestion[] }) {
 
   return (
     <div>
-      <p className="mb-4 text-base font-semibold text-slate-900">{question.question}</p>
+      <p className="mb-3.5 text-[15px] font-bold text-[#111]">{question.question}</p>
 
-      <div className="flex flex-col gap-2.5">
+      <div className="flex flex-col gap-2">
         {question.options.map((option, optionIndex) => {
           const isCorrect = optionIndex === question.correctIndex;
           const isSelected = optionIndex === selected;
           const showState = selected !== null;
 
-          let stateClasses = "border-slate-200 bg-white text-slate-900 hover:bg-slate-50";
-          if (showState && isCorrect) {
-            stateClasses = "border-emerald-500 bg-emerald-50 text-emerald-900";
-          } else if (showState && isSelected && !isCorrect) {
-            stateClasses = "border-red-400 bg-red-50 text-red-800";
+          let bg = "bg-white";
+          let textColor = "text-[#111]";
+          if (showState && isCorrect) bg = "bg-[#FFD100]";
+          else if (showState && isSelected && !isCorrect) {
+            bg = "bg-[#E5E5E5]";
+            textColor = "text-[#2B2B2B]";
           }
 
           return (
@@ -82,7 +83,7 @@ export function Quiz({ questions }: { questions: QuizQuestion[] }) {
               type="button"
               onClick={() => handleAnswer(optionIndex)}
               disabled={showState}
-              className={`rounded-lg border px-3.5 py-3 text-left text-sm font-medium transition ${stateClasses}`}
+              className={`rounded-[12px] border-[2.5px] border-[#111] px-3.5 py-3 text-left text-sm font-medium ${bg} ${textColor}`}
             >
               {option}
             </button>
@@ -91,22 +92,22 @@ export function Quiz({ questions }: { questions: QuizQuestion[] }) {
       </div>
 
       {selected !== null && (
-        <div className="mt-4 rounded-md border-l-4 border-emerald-500 bg-slate-50 px-3.5 py-3 text-sm text-slate-700">
+        <div className="mt-3.5 rounded-r-[12px] border-l-4 border-[#111] bg-[#F7F5EF] px-3.5 py-3 text-[13.5px] text-[#111]">
           {question.explanation}
         </div>
       )}
 
-      <div className="mt-5 flex items-center justify-between gap-3">
-        <span className="text-xs text-slate-400">
-          Q {index + 1}/{questions.length}
+      <div className="mt-3.5 flex items-center justify-between gap-3">
+        <span className="text-xs text-[#8a8a8a]">
+          Soal {index + 1}/{questions.length}
         </span>
         {selected !== null && (
           <button
             type="button"
             onClick={handleNext}
-            className="flex-1 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700"
+            className="rounded-full border-[2.5px] border-[#111] bg-[#FFD100] px-5 py-2.5 font-[family-name:var(--font-display)] text-[13px] font-bold text-[#111]"
           >
-            {isLast ? "Lihat Skor" : "Next →"}
+            {isLast ? "Lihat Skor" : "Berikutnya →"}
           </button>
         )}
       </div>

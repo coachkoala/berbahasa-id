@@ -20,7 +20,7 @@ export function HighlightedText({ text, vocabulary }: { text: string; vocabulary
     <>
       {parts.map((part, index) =>
         wordSet.has(part.toLowerCase()) ? (
-          <strong key={index} className="font-semibold text-emerald-700">
+          <strong key={index} className="rounded-[3px] bg-[#FFD100] px-0.5 font-semibold text-[#111]">
             {part}
           </strong>
         ) : (

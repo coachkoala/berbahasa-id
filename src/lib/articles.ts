@@ -104,7 +104,22 @@ export function getAdjacentArticles(article: Article, allArticles: Article[]) {
   };
 }
 
-export function formatDate(dateStr: string): string {
-  const date = new Date(`${dateStr}T00:00:00`);
-  return date.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
+export type GlobalVocabularyItem = VocabularyItem & { sourceTitle: string };
+
+export function getAllVocabulary(allArticles: Article[]): GlobalVocabularyItem[] {
+  const seen = new Set<string>();
+  const result: GlobalVocabularyItem[] = [];
+
+  for (const article of allArticles) {
+    for (const vocab of article.vocabulary) {
+      const key = vocab.word.toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+      result.push({ ...vocab, sourceTitle: article.titleEn });
+    }
+  }
+
+  return result;
 }
+
+export { formatDate } from "@/lib/format";

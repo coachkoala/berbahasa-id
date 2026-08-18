@@ -2,16 +2,23 @@ import type { VocabularyItem } from "@/lib/articles";
 
 export function VocabularyList({ items }: { items: VocabularyItem[] }) {
   return (
-    <div className="flex flex-col divide-y divide-slate-100">
-      {items.map((item) => (
-        <div key={item.word} className="py-3 first:pt-0 last:pb-0">
-          <div className="text-sm font-semibold text-emerald-700">{item.word}</div>
-          {item.phonetic && <div className="mt-0.5 font-mono text-xs text-slate-500">{item.phonetic}</div>}
-          <div className="mt-0.5 text-sm text-slate-700">{item.meaningId}</div>
+    <div className="flex flex-col">
+      {items.map((item, index) => (
+        <div
+          key={item.word}
+          className={`py-3 ${index < items.length - 1 ? "border-b-2 border-[#E5E5E5]" : ""}`}
+        >
+          <div className="font-[family-name:var(--font-display)] text-[15px] font-bold text-[#111]">
+            {item.word}
+          </div>
+          {item.phonetic && (
+            <div className="mt-0.5 font-mono text-xs text-[#2B2B2B]">{item.phonetic}</div>
+          )}
+          <div className="mt-1 text-sm text-[#111]">{item.meaningId}</div>
           {item.exampleEn && (
-            <div className="mt-1.5 border-l-2 border-slate-100 pl-2.5">
-              <p className="text-sm text-slate-600">{item.exampleEn}</p>
-              <p className="text-xs text-slate-400">{item.exampleId}</p>
+            <div className="mt-1.5 border-l-[3px] border-[#FFD100] pl-2.5">
+              <p className="text-[13px] text-[#2B2B2B]">{item.exampleEn}</p>
+              <p className="text-xs italic text-[#8a8a8a]">{item.exampleId}</p>
             </div>
           )}
         </div>

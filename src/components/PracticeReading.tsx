@@ -10,16 +10,16 @@ function RevealableSentence({ sentence }: { sentence: PracticeSentence }) {
     <button
       type="button"
       onClick={() => setRevealed((prev) => !prev)}
-      className="w-full rounded-xl border border-slate-200 bg-white p-4 text-left transition hover:border-emerald-300 sm:p-5"
+      className="w-full rounded-[14px] border-[2.5px] border-[#111] bg-[#F7F5EF] p-3.5 text-left"
       aria-expanded={revealed}
     >
-      <p className="text-base font-medium leading-relaxed text-slate-900 sm:text-lg">{sentence.en}</p>
+      <p className="text-[15px] font-medium leading-relaxed text-[#111]">{sentence.en}</p>
 
       {revealed ? (
-        <p className="mt-2 text-sm text-slate-400">{sentence.id}</p>
+        <p className="mt-1.5 text-[13.5px] italic text-[#2B2B2B]">{sentence.id}</p>
       ) : (
-        <p className="mt-2 text-xs font-medium uppercase tracking-wide text-emerald-600">
-          Tap untuk lihat terjemahan
+        <p className="mt-1.5 text-[11.5px] font-bold uppercase tracking-wide text-[#8a8a8a]">
+          Ketuk untuk lihat terjemahan
         </p>
       )}
     </button>
@@ -28,7 +28,7 @@ function RevealableSentence({ sentence }: { sentence: PracticeSentence }) {
 
 export function PracticeReading({ sentences }: { sentences: PracticeSentence[] }) {
   return (
-    <div className="flex flex-col gap-3">
+    <div className="flex flex-col gap-2.5">
       {sentences.map((sentence, index) => (
         <RevealableSentence key={index} sentence={sentence} />
       ))}

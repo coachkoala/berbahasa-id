@@ -1,44 +1,31 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
+import { AppStateProvider } from "@/lib/store";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: ["500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-body",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "berbahasa.id — Belajar Bahasa Inggris Lewat Berita Harian",
+  title: "berbahasa.id — Belajar Bahasa Inggris Lewat Berita",
   description:
-    "Satu artikel berita bahasa Inggris setiap hari, level B1, lengkap dengan kosakata, dialog, dan quiz.",
+    "Satu artikel berita bahasa Inggris setiap hari, level B1, lengkap dengan kosakata, dialog, dan kuis.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="id"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="flex min-h-full flex-col bg-slate-100 text-slate-900 print:bg-white">
-        <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col bg-white shadow-sm print:shadow-none">
-          <header className="sticky top-0 z-10 border-b border-slate-200 bg-white px-4 py-4 sm:px-6 print:hidden">
-            <Link href="/" className="text-lg font-bold tracking-tight text-slate-900">
-              ber<span className="text-emerald-600">bahasa.id</span>
-            </Link>
-          </header>
-
-          <main className="flex-1">{children}</main>
-
-          <footer className="border-t border-slate-200 px-4 py-6 text-xs text-slate-400 sm:px-6 print:hidden">
-            berbahasa.id — belajar bahasa Inggris lewat ringkasan berita harian.
-          </footer>
-        </div>
+    <html lang="id" className={`${spaceGrotesk.variable} ${inter.variable} h-full antialiased`}>
+      <body className="min-h-full bg-[#F7F5EF] font-[family-name:var(--font-body)] text-[#111111] print:bg-white">
+        <AppStateProvider>{children}</AppStateProvider>
       </body>
     </html>
   );
