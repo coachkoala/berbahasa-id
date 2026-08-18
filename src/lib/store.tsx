@@ -20,12 +20,32 @@ type AppState = {
   settings: Settings;
   toggleSetting: (key: "emailNotif" | "dailyReminder") => void;
   setLanguage: (lang: "id" | "en") => void;
+  streak: number;
   signOut: () => void;
 };
 
 const defaultSettings: Settings = { emailNotif: true, dailyReminder: true, language: "id" };
 
 const AppStateContext = createContext<AppState | null>(null);
+
+function localDateString(date: Date): string {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+/** Increments the streak on a new day if yesterday was active, resets on a gap. */
+function computeStreak(previousStreak: number, lastActiveDate: string | null) {
+  const today = localDateString(new Date());
+  if (lastActiveDate === today) {
+    return { streak: previousStreak || 1, today, changed: previousStreak === 0 };
+  }
+
+  const yesterday = localDateString(new Date(Date.now() - 24 * 60 * 60 * 1000));
+  const nextStreak = lastActiveDate === yesterday ? previousStreak + 1 : 1;
+  return { streak: nextStreak, today, changed: true };
+}
 
 export function AppStateProvider({ children }: { children: ReactNode }) {
   const router = useRouter();
@@ -34,6 +54,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
   const [bookmarks, setBookmarks] = useState<Record<string, boolean>>({});
   const [settings, setSettings] = useState<Settings>(defaultSettings);
+  const [streak, setStreak] = useState(0);
 
   useEffect(() => {
     let active = true;
@@ -66,8 +87,25 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
           dailyReminder: settingsRow.daily_reminder,
           language: settingsRow.language as "id" | "en",
         });
+
+        const { streak: nextStreak, today, changed } = computeStreak(
+          settingsRow.streak_count ?? 0,
+          settingsRow.last_active_date,
+        );
+        setStreak(nextStreak);
+        if (changed) {
+          supabase
+            .from("user_settings")
+            .update({ streak_count: nextStreak, last_active_date: today })
+            .eq("user_id", currentUser.id)
+            .then();
+        }
       } else {
-        await supabase.from("user_settings").insert({ user_id: currentUser.id });
+        const today = localDateString(new Date());
+        setStreak(1);
+        await supabase
+          .from("user_settings")
+          .insert({ user_id: currentUser.id, streak_count: 1, last_active_date: today });
       }
 
       setLoading(false);
@@ -137,6 +175,7 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
         settings,
         toggleSetting,
         setLanguage,
+        streak,
         signOut,
       }}
     >

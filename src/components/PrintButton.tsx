@@ -12,7 +12,7 @@ export function PrintButton() {
     <button
       type="button"
       onClick={() => window.print()}
-      className="rounded-full border-[2.5px] border-[#111] bg-[#FFD100] px-4 py-2 font-[family-name:var(--font-display)] text-[13px] font-bold text-[#111] print:hidden"
+      className="rounded-full border-[2.5px] border-[#111] bg-[#FFD100] px-4 py-2 font-[family-name:var(--font-display)] text-[13px] font-bold text-[#111] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2 print:hidden"
     >
       🖨️ Print / Simpan sebagai PDF
     </button>

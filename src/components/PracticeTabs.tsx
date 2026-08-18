@@ -16,7 +16,7 @@ export function PracticeTabs({ articles }: { articles: Article[] }) {
             key={article.slug}
             type="button"
             onClick={() => setActiveSlug(article.slug)}
-            className={`rounded-full border-[2.5px] border-[#111] px-4 py-2 font-[family-name:var(--font-display)] text-[13px] font-semibold ${
+            className={`rounded-full border-[2.5px] border-[#111] px-4 py-2 font-[family-name:var(--font-display)] text-[13px] font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2 ${
               article.slug === activeSlug ? "bg-[#FFD100] text-[#111]" : "bg-white text-[#111]"
             }`}
           >

@@ -21,7 +21,7 @@ export default function VocabularyPage() {
             <div className="mt-1.5 text-[13.5px] text-[#111]">{item.meaningId}</div>
             <div className="mt-2.5 border-t-2 border-[#E5E5E5] pt-2.5">
               <p className="text-[13px] text-[#2B2B2B]">{item.exampleEn}</p>
-              <p className="mt-0.5 text-xs italic text-[#8a8a8a]">{item.exampleId}</p>
+              <p className="mt-0.5 text-xs italic text-[#6b6b6b]">{item.exampleId}</p>
             </div>
           </div>
         ))}

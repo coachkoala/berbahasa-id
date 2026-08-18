@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getAllArticles } from "@/lib/articles";
 import { Greeting } from "@/components/Greeting";
+import { DashboardSidebarWidgets } from "@/components/DashboardSidebarWidgets";
 
 export default function DashboardPage() {
   const articles = getAllArticles();
@@ -16,7 +17,7 @@ export default function DashboardPage() {
         {topArticle && (
           <Link
             href={`/app/articles/${topArticle.slug}`}
-            className="flex flex-wrap gap-5 rounded-[20px] border-[3px] border-[#111] bg-white p-5 shadow-[6px_6px_0_#111]"
+            className="flex flex-wrap gap-5 rounded-[20px] border-[3px] border-[#111] bg-white p-5 shadow-[6px_6px_0_#111] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2"
           >
             {topArticle.coverImage && (
               <div className="h-[130px] w-[180px] shrink-0 overflow-hidden rounded-[14px] border-[3px] border-[#111]">
@@ -50,7 +51,7 @@ export default function DashboardPage() {
         {secondArticle && (
           <Link
             href={`/app/articles/${secondArticle.slug}`}
-            className="flex items-center gap-4 rounded-[20px] border-[3px] border-[#111] bg-white p-5 shadow-[6px_6px_0_#111]"
+            className="flex items-center gap-4 rounded-[20px] border-[3px] border-[#111] bg-white p-5 shadow-[6px_6px_0_#111] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2"
           >
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border-[2.5px] border-[#111] bg-[#FFD100] font-[family-name:var(--font-display)] text-sm font-bold">
               Aa
@@ -68,43 +69,7 @@ export default function DashboardPage() {
         )}
       </div>
 
-      <div className="flex w-full shrink-0 flex-col gap-4 sm:w-[260px]">
-        <div className="rounded-[18px] border-[3px] border-[#111] bg-[#FFD100] p-[18px]">
-          <div className="font-[family-name:var(--font-display)] text-[13px] font-semibold text-[#111]">
-            Streak
-          </div>
-          <div className="mt-0.5 font-[family-name:var(--font-display)] text-[32px] font-bold text-[#111]">
-            12 <span className="text-sm font-semibold">hari</span>
-          </div>
-          <div className="mt-1 text-xs text-[#111]">Pertahankan!</div>
-        </div>
-
-        <div className="rounded-[18px] border-[3px] border-[#111] bg-[#111] p-[18px]">
-          <div className="font-[family-name:var(--font-display)] text-[13px] font-semibold text-white">
-            Target Hari Ini
-          </div>
-          <div className="mt-0.5 font-[family-name:var(--font-display)] text-[26px] font-bold text-[#FFD100]">
-            3<span className="text-sm text-white"> / 5 pelajaran</span>
-          </div>
-          <div className="mt-2.5 h-[9px] overflow-hidden rounded-full bg-[#2B2B2B]">
-            <div className="h-full w-[60%] bg-[#FFD100]" />
-          </div>
-        </div>
-
-        <Link
-          href="/app/progress"
-          className="rounded-[18px] border-[3px] border-[#111] bg-white p-[18px]"
-        >
-          <div className="text-[13px] font-semibold text-[#2B2B2B]">Progres Anda</div>
-          <div className="mt-0.5 font-[family-name:var(--font-display)] text-[17px] font-bold text-[#111]">
-            B1 Intermediate
-          </div>
-          <div className="mt-2.5 h-[9px] overflow-hidden rounded-full border-2 border-[#111] bg-[#E5E5E5]">
-            <div className="h-full w-[73%] bg-[#FFD100]" />
-          </div>
-          <div className="mt-1.5 text-xs text-[#2B2B2B]">73% · Lihat detail →</div>
-        </Link>
-      </div>
+      <DashboardSidebarWidgets />
     </>
   );
 }

@@ -55,7 +55,7 @@ export default async function ArticlePrintPage({ params }: { params: Promise<{ s
             {article.titleEn}
           </h1>
           <p className="text-sm text-[#2B2B2B]">{article.titleId}</p>
-          <p className="text-xs text-[#8a8a8a]">
+          <p className="text-xs text-[#6b6b6b]">
             Ringkasan &amp; parafrase ditulis ulang oleh berbahasa.id. Sumber: {article.source.name} ({article.source.url})
           </p>
 
@@ -88,7 +88,7 @@ export default async function ArticlePrintPage({ params }: { params: Promise<{ s
             {article.practice.map((sentence, index) => (
               <div key={index}>
                 <p className="text-sm font-medium leading-relaxed text-[#111]">{sentence.en}</p>
-                <p className="text-xs italic text-[#8a8a8a]">{sentence.id}</p>
+                <p className="text-xs italic text-[#6b6b6b]">{sentence.id}</p>
               </div>
             ))}
           </div>
@@ -129,7 +129,7 @@ export default async function ArticlePrintPage({ params }: { params: Promise<{ s
                     </li>
                   ))}
                 </ul>
-                <p className="mt-1.5 text-xs text-[#8a8a8a]">{q.explanation}</p>
+                <p className="mt-1.5 text-xs text-[#6b6b6b]">{q.explanation}</p>
               </div>
             ))}
           </div>

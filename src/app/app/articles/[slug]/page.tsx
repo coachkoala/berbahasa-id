@@ -47,31 +47,31 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         {older ? (
           <Link
             href={`/app/articles/${older.slug}`}
-            className="flex-1 rounded-xl border-[2.5px] border-[#111] bg-white px-3 py-2.5 text-center font-[family-name:var(--font-display)] text-[13px] font-semibold text-[#111]"
+            className="flex-1 rounded-xl border-[2.5px] border-[#111] bg-white px-3 py-2.5 text-center font-[family-name:var(--font-display)] text-[13px] font-semibold text-[#111] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2"
           >
             ← Sebelumnya
           </Link>
         ) : (
-          <span className="flex-1 rounded-xl border-[2.5px] border-[#E5E5E5] px-3 py-2.5 text-center font-[family-name:var(--font-display)] text-[13px] font-semibold text-[#8a8a8a]">
+          <span className="flex-1 rounded-xl border-[2.5px] border-[#E5E5E5] px-3 py-2.5 text-center font-[family-name:var(--font-display)] text-[13px] font-semibold text-[#6b6b6b]">
             ← Sebelumnya
           </span>
         )}
         <Link
           href="/app/news"
           title="Semua berita"
-          className="shrink-0 rounded-xl border-[2.5px] border-[#111] bg-white px-2.5 py-2.5 text-sm"
+          className="shrink-0 rounded-xl border-[2.5px] border-[#111] bg-white px-2.5 py-2.5 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2"
         >
           ☰
         </Link>
         {newer ? (
           <Link
             href={`/app/articles/${newer.slug}`}
-            className="flex-1 rounded-xl border-[2.5px] border-[#111] bg-white px-3 py-2.5 text-center font-[family-name:var(--font-display)] text-[13px] font-semibold text-[#111]"
+            className="flex-1 rounded-xl border-[2.5px] border-[#111] bg-white px-3 py-2.5 text-center font-[family-name:var(--font-display)] text-[13px] font-semibold text-[#111] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2"
           >
             Berikutnya →
           </Link>
         ) : (
-          <span className="flex-1 rounded-xl border-[2.5px] border-[#E5E5E5] px-3 py-2.5 text-center font-[family-name:var(--font-display)] text-[13px] font-semibold text-[#8a8a8a]">
+          <span className="flex-1 rounded-xl border-[2.5px] border-[#E5E5E5] px-3 py-2.5 text-center font-[family-name:var(--font-display)] text-[13px] font-semibold text-[#6b6b6b]">
             Berikutnya →
           </span>
         )}
@@ -92,7 +92,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
           {article.titleEn}
         </h1>
         <p className="text-[15px] text-[#2B2B2B]">{article.titleId}</p>
-        <p className="text-xs text-[#8a8a8a]">
+        <p className="text-xs text-[#6b6b6b]">
           Ringkasan &amp; parafrase ditulis ulang oleh berbahasa.id. Sumber:{" "}
           <a
             href={article.source.url}
@@ -121,7 +121,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         </AccordionSection>
 
         <AccordionSection title="Latihan Membaca" defaultOpen={false}>
-          <p className="mb-2.5 text-xs text-[#8a8a8a]">
+          <p className="mb-2.5 text-xs text-[#6b6b6b]">
             Baca bahasa Inggris dulu, coba pahami sebelum lihat terjemahan.
           </p>
           <PracticeReading sentences={article.practice} />
@@ -141,7 +141,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
         <Link
           href={`/app/articles/${article.slug}/print`}
-          className="flex items-center justify-center gap-2 rounded-[18px] border-[3px] border-dashed border-[#111] bg-white px-4 py-3.5 font-[family-name:var(--font-display)] text-sm font-bold text-[#111]"
+          className="flex items-center justify-center gap-2 rounded-[18px] border-[3px] border-dashed border-[#111] bg-white px-4 py-3.5 font-[family-name:var(--font-display)] text-sm font-bold text-[#111] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2"
         >
           📄 Unduh PDF (A5, enak dibaca di HP)
         </Link>

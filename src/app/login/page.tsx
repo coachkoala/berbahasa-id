@@ -73,7 +73,7 @@ function LoginForm() {
           type="button"
           onClick={handleGoogleSignIn}
           disabled={loading}
-          className="mt-6 flex w-full items-center justify-center gap-2.5 rounded-full border-[3px] border-[#111] bg-white px-6 py-2.5 font-[family-name:var(--font-display)] text-sm font-bold text-[#111] shadow-[4px_4px_0_#111] disabled:opacity-60"
+          className="mt-6 flex w-full items-center justify-center gap-2.5 rounded-full border-[3px] border-[#111] bg-white px-6 py-2.5 font-[family-name:var(--font-display)] text-sm font-bold text-[#111] shadow-[4px_4px_0_#111] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2 disabled:opacity-60"
         >
           <GoogleIcon />
           {loading ? "Mengalihkan..." : "Masuk dengan Google"}
@@ -86,7 +86,10 @@ function LoginForm() {
           </p>
         )}
 
-        <Link href="/" className="mt-6 inline-block text-xs font-semibold text-[#2B2B2B]">
+        <Link
+          href="/"
+          className="mt-6 inline-block rounded text-xs font-semibold text-[#2B2B2B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2"
+        >
           ← Kembali ke beranda
         </Link>
       </div>

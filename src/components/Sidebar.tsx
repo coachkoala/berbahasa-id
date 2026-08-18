@@ -31,7 +31,7 @@ export function Sidebar() {
             <Link
               key={item.key}
               href={item.href}
-              className={`flex w-full items-center gap-3 rounded-xl border-[3px] px-3 py-2.5 text-left font-[family-name:var(--font-display)] text-sm font-semibold ${
+              className={`flex w-full items-center gap-3 rounded-xl border-[3px] px-3 py-2.5 text-left font-[family-name:var(--font-display)] text-sm font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2 ${
                 active ? "border-[#111] bg-[#FFD100] text-[#111]" : "border-transparent text-[#2B2B2B] hover:bg-[#F7F5EF]"
               }`}
             >
@@ -46,7 +46,7 @@ export function Sidebar() {
 
       <Link
         href="/"
-        className="mt-auto px-3 py-2 font-[family-name:var(--font-display)] text-[13px] font-semibold text-[#2B2B2B]"
+        className="mt-auto rounded-lg px-3 py-2 font-[family-name:var(--font-display)] text-[13px] font-semibold text-[#2B2B2B] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2"
       >
         ← Kembali ke Beranda
       </Link>

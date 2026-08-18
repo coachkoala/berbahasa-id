@@ -9,7 +9,7 @@ export function NewsSection({ paragraphs, vocabulary }: { paragraphs: NewsParagr
           <p className="text-[15.5px] leading-[1.7] text-[#111]">
             <HighlightedText text={paragraph.en} vocabulary={vocabulary} />
           </p>
-          <p className="mt-1.5 text-[13.5px] italic leading-[1.6] text-[#8a8a8a]">{paragraph.id}</p>
+          <p className="mt-1.5 text-[13.5px] italic leading-[1.6] text-[#6b6b6b]">{paragraph.id}</p>
         </div>
       ))}
     </div>

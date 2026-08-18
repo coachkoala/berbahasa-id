@@ -18,7 +18,7 @@ export default function LandingPage() {
         </div>
         <Link
           href="/app"
-          className="rounded-full border-[3px] border-[#111] bg-[#FFD100] px-6 py-2.5 font-[family-name:var(--font-display)] text-[15px] font-bold text-[#111] shadow-[4px_4px_0_#111]"
+          className="rounded-full border-[3px] border-[#111] bg-[#FFD100] px-6 py-2.5 font-[family-name:var(--font-display)] text-[15px] font-bold text-[#111] shadow-[4px_4px_0_#111] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2"
         >
           Masuk ke Dashboard
         </Link>
@@ -45,7 +45,7 @@ export default function LandingPage() {
 
           <Link
             href="/app"
-            className="rounded-full border-[3px] border-[#111] bg-[#111] px-8 py-3.5 font-[family-name:var(--font-display)] text-base font-bold text-white shadow-[5px_5px_0_#FFD100]"
+            className="rounded-full border-[3px] border-[#111] bg-[#111] px-8 py-3.5 font-[family-name:var(--font-display)] text-base font-bold text-white shadow-[5px_5px_0_#FFD100] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FFD100] focus-visible:ring-offset-2"
           >
             Mulai Belajar Gratis
           </Link>

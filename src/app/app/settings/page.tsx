@@ -8,7 +8,7 @@ function Toggle({ checked, onChange }: { checked: boolean; onChange: () => void 
       type="button"
       onClick={onChange}
       aria-pressed={checked}
-      className="relative h-7 w-[50px] rounded-full border-[2.5px] border-[#111]"
+      className="relative h-7 w-[50px] rounded-full border-[2.5px] border-[#111] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2"
       style={{ background: checked ? "#FFD100" : "#E5E5E5" }}
     >
       <span
@@ -20,7 +20,7 @@ function Toggle({ checked, onChange }: { checked: boolean; onChange: () => void 
 }
 
 export default function SettingsPage() {
-  const { user, settings, toggleSetting, setLanguage, signOut } = useAppState();
+  const { user, settings, toggleSetting, signOut } = useAppState();
   const initial = user?.email?.[0]?.toUpperCase() ?? "?";
 
   return (
@@ -50,33 +50,12 @@ export default function SettingsPage() {
           <span className="text-sm font-semibold text-[#111]">Pengingat Harian</span>
           <Toggle checked={settings.dailyReminder} onChange={() => toggleSetting("dailyReminder")} />
         </div>
-        <div>
-          <span className="mb-2 block text-sm font-semibold text-[#111]">Bahasa Aplikasi</span>
-          <div className="flex w-fit overflow-hidden rounded-full border-[2.5px] border-[#111]">
-            <button
-              type="button"
-              onClick={() => setLanguage("id")}
-              className="px-[18px] py-2 font-[family-name:var(--font-display)] text-[13px] font-semibold text-[#111]"
-              style={{ background: settings.language === "id" ? "#FFD100" : "#FFFFFF" }}
-            >
-              Bahasa Indonesia
-            </button>
-            <button
-              type="button"
-              onClick={() => setLanguage("en")}
-              className="px-[18px] py-2 font-[family-name:var(--font-display)] text-[13px] font-semibold text-[#111]"
-              style={{ background: settings.language === "en" ? "#FFD100" : "#FFFFFF" }}
-            >
-              English
-            </button>
-          </div>
-        </div>
       </div>
 
       <button
         type="button"
         onClick={signOut}
-        className="w-fit rounded-full border-[3px] border-[#111] bg-white px-[22px] py-2.5 font-[family-name:var(--font-display)] text-sm font-bold text-[#111]"
+        className="w-fit rounded-full border-[3px] border-[#111] bg-white px-[22px] py-2.5 font-[family-name:var(--font-display)] text-sm font-bold text-[#111] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2"
       >
         Keluar
       </button>

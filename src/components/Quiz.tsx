@@ -51,7 +51,7 @@ export function Quiz({ questions }: { questions: QuizQuestion[] }) {
         <button
           type="button"
           onClick={handleReset}
-          className="mt-3.5 rounded-full border-[2.5px] border-[#111] bg-[#111] px-5 py-2.5 font-[family-name:var(--font-display)] text-[13px] font-bold text-white"
+          className="mt-3.5 rounded-full border-[2.5px] border-[#111] bg-[#111] px-5 py-2.5 font-[family-name:var(--font-display)] text-[13px] font-bold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2"
         >
           Ulangi Kuis
         </button>
@@ -83,7 +83,7 @@ export function Quiz({ questions }: { questions: QuizQuestion[] }) {
               type="button"
               onClick={() => handleAnswer(optionIndex)}
               disabled={showState}
-              className={`rounded-[12px] border-[2.5px] border-[#111] px-3.5 py-3 text-left text-sm font-medium ${bg} ${textColor}`}
+              className={`rounded-[12px] border-[2.5px] border-[#111] px-3.5 py-3 text-left text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2 ${bg} ${textColor}`}
             >
               {option}
             </button>
@@ -98,14 +98,14 @@ export function Quiz({ questions }: { questions: QuizQuestion[] }) {
       )}
 
       <div className="mt-3.5 flex items-center justify-between gap-3">
-        <span className="text-xs text-[#8a8a8a]">
+        <span className="text-xs text-[#6b6b6b]">
           Soal {index + 1}/{questions.length}
         </span>
         {selected !== null && (
           <button
             type="button"
             onClick={handleNext}
-            className="rounded-full border-[2.5px] border-[#111] bg-[#FFD100] px-5 py-2.5 font-[family-name:var(--font-display)] text-[13px] font-bold text-[#111]"
+            className="rounded-full border-[2.5px] border-[#111] bg-[#FFD100] px-5 py-2.5 font-[family-name:var(--font-display)] text-[13px] font-bold text-[#111] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2"
           >
             {isLast ? "Lihat Skor" : "Berikutnya →"}
           </button>

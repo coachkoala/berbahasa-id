@@ -10,14 +10,14 @@ export function ExpressionsList({ expressions }: { expressions: UsefulExpression
               &ldquo;{expression.phrase}&rdquo;
             </span>
             {expression.phonetic && (
-              <span className="font-mono text-[11.5px] text-[#8a8a8a]">{expression.phonetic}</span>
+              <span className="font-mono text-[11.5px] text-[#6b6b6b]">{expression.phonetic}</span>
             )}
           </div>
           <p className="mt-1.5 text-[13.5px] text-[#111]">{expression.meaningId}</p>
           <p className="mt-1 text-[13px] text-[#2B2B2B]">{expression.definitionEn}</p>
           <div className="mt-2 border-t-2 border-[#E5E5E5] pt-2">
             <p className="text-[13px] text-[#2B2B2B]">{expression.exampleEn}</p>
-            <p className="text-xs italic text-[#8a8a8a]">{expression.exampleId}</p>
+            <p className="text-xs italic text-[#6b6b6b]">{expression.exampleId}</p>
           </div>
         </div>
       ))}

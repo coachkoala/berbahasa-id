@@ -18,7 +18,7 @@ export function VocabularyList({ items }: { items: VocabularyItem[] }) {
           {item.exampleEn && (
             <div className="mt-1.5 border-l-[3px] border-[#FFD100] pl-2.5">
               <p className="text-[13px] text-[#2B2B2B]">{item.exampleEn}</p>
-              <p className="text-xs italic text-[#8a8a8a]">{item.exampleId}</p>
+              <p className="text-xs italic text-[#6b6b6b]">{item.exampleId}</p>
             </div>
           )}
         </div>

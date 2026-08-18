@@ -7,7 +7,7 @@ export function CoverImage({ image }: { image: CoverImageType }) {
       <div className="relative aspect-[3/2] w-full overflow-hidden rounded-[18px] border-[3px] border-[#111] bg-[#F7F5EF]">
         <Image src={image.src} alt={image.alt} fill sizes="(min-width: 768px) 760px, 100vw" className="object-cover" priority />
       </div>
-      {image.credit && <figcaption className="text-xs text-[#8a8a8a]">{image.credit}</figcaption>}
+      {image.credit && <figcaption className="text-xs text-[#6b6b6b]">{image.credit}</figcaption>}
     </figure>
   );
 }

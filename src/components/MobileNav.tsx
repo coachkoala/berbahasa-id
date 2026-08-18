@@ -24,7 +24,7 @@ export function MobileNav() {
           <Link
             key={item.key}
             href={item.href}
-            className={`flex shrink-0 items-center gap-1.5 rounded-full border-2 px-3 py-1.5 font-[family-name:var(--font-display)] text-xs font-semibold ${
+            className={`flex shrink-0 items-center gap-1.5 rounded-full border-2 px-3 py-1.5 font-[family-name:var(--font-display)] text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#111] focus-visible:ring-offset-2 ${
               active ? "border-[#111] bg-[#FFD100] text-[#111]" : "border-[#111] bg-white text-[#2B2B2B]"
             }`}
           >
