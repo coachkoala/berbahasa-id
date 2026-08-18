@@ -18,7 +18,7 @@ export function RelatedVocabulary({ entries }: { entries: RelatedVocabularyEntry
             <span className="text-slate-400">muncul di</span>
             {entry.articles.map((article, index) => (
               <span key={article.slug}>
-                <Link href={`/articles/${article.slug}`} className="text-indigo-600 hover:underline">
+                <Link href={`/articles/${article.slug}`} className="text-emerald-600 hover:underline">
                   {article.titleEn}
                 </Link>
                 {index < entry.articles.length - 1 && <span className="text-slate-400">, </span>}

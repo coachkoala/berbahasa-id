@@ -9,32 +9,26 @@ isExample: true
 source:
   name: "Contoh Sumber (Artikel Demo, bukan berita asli)"
   url: "https://example.com"
+news:
+  - "A group of young developers in Jakarta has launched a new app called SisaBaik, designed to reduce food waste across the city. The app connects restaurants and grocery stores that have extra, unsold food with shelters and families who need it. Instead of throwing leftover ingredients away at the end of the day, businesses can list them in the app for free pickup."
+  - "According to the team, the app has already helped save several tons of food since it started a few months ago. Users can also log their own groceries at home, and the app sends a reminder before anything is close to expiring. The founders, who belong to a generation raised on mobile apps, say they built SisaBaik after noticing how much good food was being thrown away in their own neighborhood."
+  - "The team hopes to expand the app to more cities in Indonesia next year. They are also working with local governments to encourage more restaurants to join the program voluntarily."
 vocabulary:
   - word: "leftover"
     phonetic: "/ˈlef.toʊ.vər/"
     meaningId: "sisa makanan"
-    exampleEn: "The restaurant donates its leftover food every night."
-    exampleId: "Restoran itu menyumbangkan sisa makanannya setiap malam."
   - word: "ingredient"
     phonetic: "/ɪnˈɡriː.di.ənt/"
     meaningId: "bahan (masakan)"
-    exampleEn: "Each ingredient is checked before it is thrown away."
-    exampleId: "Setiap bahan diperiksa sebelum dibuang."
   - word: "reduce"
     phonetic: "/rɪˈduːs/"
     meaningId: "mengurangi"
-    exampleEn: "The app helps families reduce the food they waste."
-    exampleId: "Aplikasi ini membantu keluarga mengurangi makanan yang terbuang."
   - word: "generation"
     phonetic: "/ˌdʒen.əˈreɪ.ʃən/"
     meaningId: "generasi"
-    exampleEn: "The founders belong to a generation that grew up online."
-    exampleId: "Para pendirinya termasuk generasi yang tumbuh dengan internet."
   - word: "donate"
     phonetic: "/ˈdoʊ.neɪt/"
     meaningId: "menyumbangkan"
-    exampleEn: "Users can donate extra food to nearby shelters."
-    exampleId: "Pengguna bisa menyumbangkan makanan berlebih ke penampungan terdekat."
 practice:
   - en: "A group of young developers in Jakarta built a new app called SisaBaik."
     id: "Sekelompok pengembang muda di Jakarta membuat aplikasi baru bernama SisaBaik."
@@ -81,10 +75,27 @@ expressions:
     definitionEn: "to record or follow the progress of something"
     exampleEn: "The app helps users keep track of their groceries."
     exampleId: "Aplikasi ini membantu pengguna mencatat belanjaan mereka."
+quiz:
+  - question: "What is the main goal of the SisaBaik app?"
+    options:
+      - "To sell restaurant food at a discount"
+      - "To reduce food waste by connecting extra food with people who need it"
+      - "To help restaurants order more ingredients"
+    correctIndex: 1
+    explanation: "SisaBaik connects restaurants and stores with leftover food to shelters and families who need it, reducing food waste."
+  - question: "How can users help prevent food waste at home?"
+    options:
+      - "By logging their groceries so the app reminds them before food expires"
+      - "By ordering food delivery every day"
+      - "By avoiding the app completely"
+    correctIndex: 0
+    explanation: "Users can log their own groceries at home, and the app sends a reminder before anything is close to expiring."
+  - question: "What are the founders' plans for next year?"
+    options:
+      - "To close the app"
+      - "To expand the app to more cities in Indonesia"
+      - "To only work with one restaurant"
+    correctIndex: 1
+    explanation: "The team hopes to expand the app to more cities in Indonesia next year."
 microExercise: "Coba tulis 1 kalimat sendiri menggunakan salah satu kosakata di atas (misalnya: leftover, reduce, atau donate)."
 ---
-A group of young developers in Jakarta has launched a new app called SisaBaik, designed to reduce food waste across the city. The app connects restaurants and grocery stores that have extra, unsold food with shelters and families who need it. Instead of throwing leftover ingredients away at the end of the day, businesses can list them in the app for free pickup.
-
-According to the team, the app has already helped save several tons of food since it started a few months ago. Users can also log their own groceries at home, and the app sends a reminder before anything is close to expiring. The founders, who belong to a generation raised on mobile apps, say they built SisaBaik after noticing how much good food was being thrown away in their own neighborhood.
-
-The team hopes to expand the app to more cities in Indonesia next year. They are also working with local governments to encourage more restaurants to join the program voluntarily.

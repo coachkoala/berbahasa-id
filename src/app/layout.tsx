@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "berbahasa.id — Belajar Bahasa Inggris Lewat Berita Harian",
   description:
-    "Satu artikel berita bahasa Inggris setiap hari, level B1, lengkap dengan kosakata, latihan membaca, dan percakapan.",
+    "Satu artikel berita bahasa Inggris setiap hari, level B1, lengkap dengan kosakata, flashcard, dialog, dan quiz.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -25,23 +25,20 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="id"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-slate-50 text-slate-900">
-        <header className="border-b border-slate-200 bg-white">
-          <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-4 sm:px-6">
-            <Link href="/" className="flex items-baseline gap-2">
-              <span className="text-lg font-bold tracking-tight text-slate-900">berbahasa.id</span>
-              <span className="hidden text-xs text-slate-400 sm:inline">Daily English Learning</span>
+      <body className="flex min-h-full flex-col bg-slate-100 text-slate-900">
+        <div className="mx-auto flex w-full max-w-2xl flex-1 flex-col bg-white shadow-sm">
+          <header className="sticky top-0 z-10 border-b border-slate-200 bg-white px-4 py-4 sm:px-6">
+            <Link href="/" className="text-lg font-bold tracking-tight text-slate-900">
+              ber<span className="text-emerald-600">bahasa.id</span>
             </Link>
-          </div>
-        </header>
+          </header>
 
-        <main className="flex-1">{children}</main>
+          <main className="flex-1">{children}</main>
 
-        <footer className="border-t border-slate-200 bg-white">
-          <div className="mx-auto max-w-3xl px-4 py-6 text-xs text-slate-400 sm:px-6">
-            berbahasa.id — belajar bahasa Inggris lewat ringkasan berita harian, level B1.
-          </div>
-        </footer>
+          <footer className="border-t border-slate-200 px-4 py-6 text-xs text-slate-400 sm:px-6">
+            berbahasa.id — belajar bahasa Inggris lewat ringkasan berita harian.
+          </footer>
+        </div>
       </body>
     </html>
   );

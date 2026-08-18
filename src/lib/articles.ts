@@ -4,12 +4,16 @@ import matter from "gray-matter";
 
 const ARTICLES_DIR = path.join(process.cwd(), "content", "articles");
 
+export type CoverImage = {
+  src: string;
+  alt: string;
+  credit?: string;
+};
+
 export type VocabularyItem = {
   word: string;
   phonetic?: string;
   meaningId: string;
-  exampleEn: string;
-  exampleId: string;
 };
 
 export type PracticeSentence = {
@@ -18,7 +22,7 @@ export type PracticeSentence = {
 };
 
 export type ConversationLine = {
-  speaker: string;
+  speaker: "A" | "B";
   en: string;
   id: string;
 };
@@ -30,6 +34,13 @@ export type UsefulExpression = {
   definitionEn: string;
   exampleEn: string;
   exampleId: string;
+};
+
+export type QuizQuestion = {
+  question: string;
+  options: string[];
+  correctIndex: number;
+  explanation: string;
 };
 
 export type ArticleSource = {
@@ -46,32 +57,24 @@ type ArticleFrontmatter = {
   readTimeMinutes: number;
   isExample?: boolean;
   source: ArticleSource;
+  coverImage?: CoverImage;
+  news: string[];
   vocabulary: VocabularyItem[];
   practice: PracticeSentence[];
   conversation: ConversationLine[];
   expressions: UsefulExpression[];
+  quiz: QuizQuestion[];
   microExercise: string;
 };
 
-export type Article = ArticleFrontmatter & {
-  newsParagraphs: string[];
-};
+export type Article = ArticleFrontmatter;
 
 function readArticleFile(filename: string): Article {
   const filePath = path.join(ARTICLES_DIR, filename);
   const raw = fs.readFileSync(filePath, "utf-8");
-  const { data, content } = matter(raw);
+  const { data } = matter(raw);
 
-  const newsParagraphs = content
-    .trim()
-    .split(/\n\s*\n/)
-    .map((paragraph) => paragraph.trim())
-    .filter(Boolean);
-
-  return {
-    ...(data as ArticleFrontmatter),
-    newsParagraphs,
-  };
+  return data as ArticleFrontmatter;
 }
 
 export function getAllArticles(): Article[] {
@@ -85,6 +88,14 @@ export function getAllArticles(): Article[] {
 
 export function getArticleBySlug(slug: string): Article | undefined {
   return getAllArticles().find((article) => article.slug === slug);
+}
+
+export function getAdjacentArticles(article: Article, allArticles: Article[]) {
+  const index = allArticles.findIndex((candidate) => candidate.slug === article.slug);
+  return {
+    newer: index > 0 ? allArticles[index - 1] : undefined,
+    older: index >= 0 && index < allArticles.length - 1 ? allArticles[index + 1] : undefined,
+  };
 }
 
 export type RelatedVocabularyEntry = {

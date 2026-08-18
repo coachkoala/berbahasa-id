@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<!-- saved from url=(0021)https://berbahasa.id/ -->
+<html lang="id"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Belajar bahasa Inggris dari berita Indonesia - Mobile optimized">
+  <meta name="theme-color" content="#1D9E75">
+  <title>Berbahasa</title>
+  <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f0f0f0;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+.app {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0;
+  background: #fff;
+  min-height: 100vh;
+  box-shadow: 0 0 24px rgba(0,0,0,0.08);
+}
+
+.header {
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  position: sticky; 
+  top: 0; 
+  background: #fff; 
+  z-index: 10;
+}
+.logo { 
+  font-size: 20px; 
+  font-weight: 600; 
+  color: #1a1a1a; 
+}
+.logo span { 
+  color: #1D9E75; 
+}
+
+.article-nav { 
+  padding: 0.875rem;
+  background: #f5f5f5; 
+  border-bottom: 1px solid #ddd; 
+  display: flex; 
+  align-items: center; 
+  gap: 8px;
+}
+.article-nav button { 
+  padding: 8px 10px; 
+  border-radius: 6px; 
+  border: 1px solid #1D9E75; 
+  background: #fff; 
+  color: #1D9E75; 
+  font-size: 13px; 
+  cursor: pointer;
+  font-weight: 600;
+  flex-shrink: 0;
+  min-width: 36px;
+  text-align: center;
+  transition: all 0.2s;
+}
+.article-nav button:hover {
+  background: #f0f9f6;
+}
+.article-nav button:active {
+  background: #e8f7f2;
+}
+.article-nav button:disabled { 
+  opacity: 0.3; 
+  cursor: not-allowed; 
+}
+.btn-today {
+  font-size: 16px;
+  padding: 7px 8px;
+}
+.btn-today:hover {
+  transform: scale(1.15);
+}
+.article-nav select { 
+  padding: 8px 10px; 
+  border-radius: 6px; 
+  border: 1px solid #1D9E75; 
+  font-size: 13px;
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.welcome { 
+  padding: 1.25rem;
+  background: #f0f9f6; 
+  border-bottom: 1px solid #d0ebe3;
+}
+.welcome-logo { 
+  font-size: 18px; 
+  font-weight: 700; 
+  color: #1D9E75; 
+  margin-bottom: 4px; 
+}
+.welcome-tagline { 
+  font-size: 12px; 
+  color: #999; 
+  font-weight: 400;
+}
+.welcome-text { 
+  font-size: 14px; 
+  color: #333; 
+  line-height: 1.6;
+}
+
+.level-selector { 
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+}
+.level-label { 
+  font-size: 12px; 
+  color: #666; 
+  text-transform: uppercase; 
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+.level-tabs { 
+  display: flex; 
+  gap: 8px;
+}
+.level-tab { 
+  flex: 1;
+  padding: 10px 12px; 
+  border-radius: 8px; 
+  border: 1px solid #ddd; 
+  font-size: 13px; 
+  cursor: pointer; 
+  background: #fff; 
+  color: #666; 
+  transition: all 0.15s;
+  font-weight: 500;
+}
+.level-tab.active { 
+  background: #1D9E75; 
+  color: #fff; 
+  border-color: #1D9E75;
+}
+
+.section { 
+  padding: 0;
+  border-bottom: 1px solid #ddd;
+}
+.section-header { 
+  padding: 1rem;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  cursor: pointer; 
+  user-select: none;
+  background: #f9f9f9;
+  border-bottom: 1px solid #eee;
+}
+.section-header:active {
+  background: #f0f0f0;
+}
+.section-title { 
+  font-size: 14px; 
+  color: #333; 
+  font-weight: 600;
+  display: flex; 
+  align-items: center; 
+  gap: 10px;
+}
+.section-toggle { 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+  width: 20px; 
+  height: 20px; 
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px; 
+  font-size: 12px; 
+  transition: transform 0.2s;
+  color: #1D9E75;
+}
+.section-toggle.open { 
+  transform: rotate(180deg); 
+}
+.section-content { 
+  max-height: 2000px; 
+  overflow: hidden; 
+  transition: max-height 0.3s ease, padding 0.3s ease; 
+  padding: 1rem;
+}
+.section-content.collapsed { 
+  max-height: 0; 
+  overflow: hidden; 
+  padding: 0 1rem;
+}
+
+.article-image {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.article-date {
+  font-size: 13px;
+  color: #999;
+  margin-bottom: 0.75rem;
+}
+.article-title { 
+  font-size: 20px; 
+  font-weight: 700; 
+  color: #1a1a1a; 
+  margin-bottom: 1rem; 
+  line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.article-body { 
+  font-size: 15px; 
+  color: #333; 
+  line-height: 1.8; 
+  white-space: pre-wrap;
+  margin-bottom: 1.5rem;
+}
+
+.vocab-box { 
+  margin-top: 0;
+  background: transparent; 
+  border-radius: 0; 
+  padding: 0;
+  border: none;
+}
+.vocab-title { 
+  display: none;
+}
+.vocab-item { 
+  padding: 1rem 0; 
+  border-bottom: 1px solid #eee;
+}
+.vocab-item:last-child { 
+  border-bottom: none; 
+}
+.vocab-word { 
+  font-size: 14px; 
+  font-weight: 600; 
+  color: #1D9E75;
+}
+.vocab-pronunciation { 
+  font-size: 13px; 
+  color: #666; 
+  font-family: 'Courier New', monospace; 
+  margin-top: 4px;
+}
+.vocab-translation { 
+  font-size: 13px; 
+  color: #333; 
+  margin-top: 4px;
+}
+
+.dialogue-section { 
+  margin-top: 0;
+}
+.dialogue-bubble { 
+  display: flex; 
+  align-items: flex-end; 
+  margin-bottom: 1.25rem; 
+  gap: 8px;
+}
+.dialogue-bubble.speaker-b { 
+  justify-content: flex-end; 
+}
+.dialogue-bubble.speaker-a { 
+  justify-content: flex-start; 
+}
+.bubble { 
+  max-width: 80%; 
+  padding: 12px 14px; 
+  border-radius: 14px; 
+  font-size: 14px; 
+  line-height: 1.5;
+  word-wrap: break-word;
+}
+.bubble.speaker-a { 
+  background: #f0f0f0; 
+  color: #1a1a1a; 
+  border-radius: 14px 14px 14px 2px;
+}
+.bubble.speaker-b { 
+  background: #1D9E75; 
+  color: #fff; 
+  border-radius: 14px 14px 2px 14px;
+}
+.bubble-translation { 
+  font-size: 12px; 
+  color: #666;
+  margin-top: 6px;
+  font-style: italic;
+}
+.bubble.speaker-b .bubble-translation {
+  color: #e8f7f6;
+}
+
+.flashcard-section { 
+  margin-top: 0;
+}
+.flashcard { 
+  width: 100%; 
+  height: 160px; 
+  position: relative; 
+  cursor: pointer; 
+  transform-style: preserve-3d; 
+  transition: transform 0.4s;
+  margin: 1.5rem 0;
+}
+.flashcard.flipped { 
+  transform: rotateY(180deg); 
+}
+.card-face { 
+  position: absolute; 
+  width: 100%; 
+  height: 100%; 
+  backface-visibility: hidden; 
+  border-radius: 12px; 
+  border: 1px solid #ddd;
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center; 
+  padding: 1rem; 
+  text-align: center;
+}
+.card-front { 
+  background: #fff; 
+}
+.card-back { 
+  background: #f0f9f6; 
+  transform: rotateY(180deg); 
+}
+.card-word { 
+  font-size: 22px; 
+  font-weight: 700; 
+  color: #1a1a1a;
+}
+.card-translation { 
+  font-size: 15px; 
+  color: #1D9E75; 
+  margin-top: 10px;
+  font-weight: 600;
+}
+.card-hint { 
+  font-size: 12px; 
+  color: #999; 
+  margin-top: 8px;
+}
+.card-nav { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-top: 1rem;
+  gap: 10px;
+}
+.card-nav button { 
+  flex: 1;
+  padding: 10px 12px; 
+  border: 1px solid #ddd; 
+  border-radius: 6px; 
+  background: #fff; 
+  font-size: 13px; 
+  cursor: pointer;
+  color: #333;
+  font-weight: 500;
+}
+.card-counter { 
+  font-size: 13px; 
+  color: #999;
+  flex-shrink: 0;
+}
+
+.quiz-section { 
+  margin-top: 0;
+}
+.quiz-question { 
+  font-size: 16px; 
+  font-weight: 600; 
+  color: #1a1a1a; 
+  margin-bottom: 1.25rem; 
+  line-height: 1.5;
+}
+.quiz-options { 
+  display: flex; 
+  flex-direction: column; 
+  gap: 10px;
+}
+.quiz-option { 
+  padding: 14px 14px; 
+  border-radius: 8px; 
+  border: 1px solid #ddd; 
+  font-size: 14px; 
+  cursor: pointer; 
+  background: #fff; 
+  color: #1a1a1a; 
+  text-align: left; 
+  transition: all 0.15s;
+  font-weight: 500;
+}
+.quiz-option:active { 
+  background: #f5f5f5; 
+}
+.quiz-option.correct { 
+  background: #e8f7f2; 
+  border-color: #1D9E75;
+  color: #085041;
+}
+.quiz-option.wrong { 
+  background: #ffe8e8; 
+  border-color: #d32f2f;
+  color: #a31e1e;
+}
+.quiz-explanation { 
+  margin-top: 1rem; 
+  padding: 12px 14px; 
+  background: #f9f9f9; 
+  border-left: 3px solid #1D9E75; 
+  border-radius: 4px; 
+  font-size: 14px; 
+  color: #333; 
+  line-height: 1.6;
+  display: none;
+}
+.quiz-result { 
+  margin-top: 1.5rem; 
+  padding: 1.5rem; 
+  background: #e8f7f2; 
+  border-radius: 8px; 
+  text-align: center; 
+  display: none;
+}
+.quiz-result-score { 
+  font-size: 40px; 
+  font-weight: 700; 
+  color: #1D9E75;
+}
+.quiz-nav { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  margin-top: 1.5rem;
+  gap: 10px;
+}
+.quiz-counter { 
+  font-size: 13px; 
+  color: #999;
+  flex-shrink: 0;
+}
+
+#quiz-next-btn {
+  flex: 1;
+  padding: 10px 12px; 
+  background: #1D9E75; 
+  color: #fff; 
+  border: none; 
+  border-radius: 6px; 
+  cursor: pointer; 
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Mobile optimizations */
+@media (max-width: 480px) {
+  .header {
+    padding: 0.875rem;
+  }
+  
+  .article-nav {
+    padding: 0.875rem;
+    gap: 6px;
+  }
+  
+  .article-nav button,
+  .article-nav select {
+    font-size: 12px;
+    padding: 7px 10px;
+  }
+  
+  .level-tab {
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+  
+  .section-header {
+    padding: 0.875rem;
+  }
+  
+  .section-content {
+    padding: 0.75rem;
+  }
+  
+  .section-content.collapsed {
+    padding: 0 0.75rem;
+  }
+  
+  .article-title {
+    font-size: 18px;
+  }
+  
+  .article-body {
+    font-size: 14px;
+  }
+  
+  .bubble {
+    max-width: 85%;
+    font-size: 13px;
+    padding: 10px 12px;
+  }
+  
+  .flashcard {
+    height: 140px;
+  }
+  
+  .card-word {
+    font-size: 20px;
+  }
+  
+  .card-translation {
+    font-size: 13px;
+  }
+  
+  .card-nav button {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+  
+  .quiz-option {
+    padding: 12px 12px;
+    font-size: 13px;
+  }
+  
+  .quiz-result-score {
+    font-size: 36px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<div class="app">
+
+<div class="header">
+  <div class="logo">ber<span>bahasa.id</span></div>
+</div>
+
+<div class="article-nav">
+  <button onclick="prevArticle()" id="prevBtn">←</button>
+  <select onchange="jumpToArticle(this.value)" id="articleSelect"><option value="0">3 Juni 2026 - Indonesia Launches Large-Scale Electric Vehicle Subsidy Program</option><option value="1">2 Juni 2026 - Diplomat Dino Patti Djalal Criticizes President Prabowo's Foreign Travel</option><option value="2">1 Juni 2026 - Hari Lahir Pancasila: Indonesia Celebrates Founding Principles</option></select>
+  <button onclick="nextArticle()" id="nextBtn" disabled="">→</button>
+  <button onclick="jumpToArticle(0)" title="Back to Today" class="btn-today">🏠</button>
+</div>
+
+<div class="welcome">
+  <div class="welcome-logo">berbahasa.id</div>
+  <div class="welcome-tagline">News to Learn Language</div>
+</div>
+
+<div class="level-selector">
+  <div class="level-label" style="display: none;">Level</div>
+  <div class="level-tabs">
+    <button class="level-tab active" onclick="switchLevel(&#39;easy&#39;, this)">Easy</button>
+    <button class="level-tab" onclick="switchLevel(&#39;medium&#39;, this)">Medium</button>
+    <button class="level-tab" onclick="switchLevel(&#39;pro&#39;, this)">Pro</button>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="section-title">
+      <span class="section-toggle open">▼</span>
+      📖 Article
+    </div>
+  </div>
+  <div class="section-content">
+    <div class="article-date" id="article-date"><b>3 Juni 2026</b></div>
+    <div class="article-title" id="article-title">Indonesia Launches Large-Scale Electric Vehicle Subsidy Program</div>
+    <img class="article-image" id="article-image" src="./Berbahasa_files/ev-subsidy.png" alt="Indonesia Launches Large-Scale Electric Vehicle Subsidy Program" style="display: block;">
+    <div class="article-body" id="article-body">Indonesia has launched a big program to help people buy <b>electric vehicles</b>. The government will provide <b>subsidy</b> to reduce car prices. The program starts in June 2026.
+
+The plan is to help 200,000 people buy <b>electric vehicles</b>. This will make cars more <b>affordable</b> for families. They are good for the environment because they do not produce pollution.
+
+Many countries around the world are doing the same thing. Indonesia wants to reduce air pollution in cities. This program helps the economy and the environment at the same time.</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="section-title">
+      <span class="section-toggle open">▼</span>
+      📚 Vocabulary
+    </div>
+  </div>
+  <div class="section-content">
+    <div id="vocab-list">
+    <div class="vocab-item">
+      <div class="vocab-word">electric vehicles</div>
+      <div class="vocab-pronunciation">/ɪˈlek.trɪk ˈviː.ə.kəlz/</div>
+      <div class="vocab-translation">kendaraan listrik</div>
+    </div>
+  
+    <div class="vocab-item">
+      <div class="vocab-word">subsidy</div>
+      <div class="vocab-pronunciation">/ˈsʌb.sə.di/</div>
+      <div class="vocab-translation">subsidi</div>
+    </div>
+  
+    <div class="vocab-item">
+      <div class="vocab-word">affordable</div>
+      <div class="vocab-pronunciation">/əˈfɔr.də.bəl/</div>
+      <div class="vocab-translation">terjangkau</div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="section-title">
+      <span class="section-toggle open">▼</span>
+      💬 Dialogue
+    </div>
+  </div>
+  <div class="section-content">
+    <div class="dialogue-section" id="dialogue-section">
+    <div class="dialogue-bubble speaker-a">
+      <div class="bubble speaker-a">
+        <div>Did you hear about the electric car subsidy?</div>
+        <div class="bubble-translation">Apakah kamu dengar tentang subsidi mobil listrik?</div>
+      </div>
+    </div>
+  
+    <div class="dialogue-bubble speaker-b">
+      <div class="bubble speaker-b">
+        <div>Yes! The government will help people buy electric cars.</div>
+        <div class="bubble-translation">Iya! Pemerintah akan membantu orang membeli mobil listrik.</div>
+      </div>
+    </div>
+  
+    <div class="dialogue-bubble speaker-a">
+      <div class="bubble speaker-a">
+        <div>How many cars will get the subsidy?</div>
+        <div class="bubble-translation">Berapa banyak mobil yang akan dapat subsidi?</div>
+      </div>
+    </div>
+  
+    <div class="dialogue-bubble speaker-b">
+      <div class="bubble speaker-b">
+        <div>200,000 cars. This will make them more affordable.</div>
+        <div class="bubble-translation">200,000 mobil. Ini akan membuat mereka lebih terjangkau.</div>
+      </div>
+    </div>
+  
+    <div class="dialogue-bubble speaker-a">
+      <div class="bubble speaker-a">
+        <div>That's very good for the environment.</div>
+        <div class="bubble-translation">Itu sangat baik untuk lingkungan.</div>
+      </div>
+    </div>
+  
+    <div class="dialogue-bubble speaker-b">
+      <div class="bubble speaker-b">
+        <div>Exactly. Electric cars do not produce pollution.</div>
+        <div class="bubble-translation">Benar sekali. Mobil listrik tidak menghasilkan polusi.</div>
+      </div>
+    </div>
+  
+    <div class="dialogue-bubble speaker-a">
+      <div class="bubble speaker-a">
+        <div>When does the program start?</div>
+        <div class="bubble-translation">Kapan program ini dimulai?</div>
+      </div>
+    </div>
+  
+    <div class="dialogue-bubble speaker-b">
+      <div class="bubble speaker-b">
+        <div>It starts this month, in June 2026.</div>
+        <div class="bubble-translation">Dimulai bulan ini, Juni 2026.</div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="section-title">
+      <span class="section-toggle">▼</span>
+      🃏 Flashcard
+    </div>
+  </div>
+  <div class="section-content collapsed">
+    <div style="font-size: 12px; color: #999; margin-bottom: 1rem;">Tap to flip</div>
+    <div class="flashcard-section">
+      <div class="flashcard" id="flashcard" onclick="flipCard()">
+        <div class="card-face card-front">
+          <div class="card-word" id="card-front-word">electric vehicles</div>
+          <div class="card-pronunciation" id="card-front-pronunciation" style="font-size: 12px; color: #666; font-family: monospace; margin-top: 4px;">/ɪˈlek.trɪk ˈviː.ə.kəlz/</div>
+          <div class="card-hint">tap</div>
+        </div>
+        <div class="card-face card-back">
+          <div class="card-translation" id="card-back-translation">kendaraan listrik</div>
+        </div>
+      </div>
+      <div class="card-nav">
+        <button onclick="prevCard()">← Prev</button>
+        <div class="card-counter" id="card-counter">1/3</div>
+        <button onclick="nextCard()">Next →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="section-title">
+      <span class="section-toggle">▼</span>
+      ❓ Quiz
+    </div>
+  </div>
+  <div class="section-content collapsed">
+    <div class="quiz-section">
+      <div class="quiz-question" id="quiz-question">How many electric vehicles will be subsidized?</div>
+      <div class="quiz-options" id="quiz-options">
+    <button class="quiz-option" onclick="answerQuiz(0)">100,000</button>
+  
+    <button class="quiz-option" onclick="answerQuiz(1)">200,000</button>
+  
+    <button class="quiz-option" onclick="answerQuiz(2)">500,000</button>
+  </div>
+      <div class="quiz-explanation" id="quiz-explanation" style="display: none;"></div>
+      <div class="quiz-result" id="quiz-result" style="display: none;">
+        <div class="quiz-result-score" id="quiz-result-score">2/3</div>
+        <div style="margin-top: 8px; font-size: 14px; color: #333;" id="quiz-result-message">✅ Bagus!</div>
+        <button onclick="resetQuiz()" style="margin-top: 16px; padding: 10px 20px; background: #1D9E75; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 14px;">🔄 Reset Quiz</button>
+      </div>
+      <div class="quiz-nav">
+        <div class="quiz-counter" id="quiz-counter">Q 1/3</div>
+        <button id="quiz-next-btn" onclick="nextQuiz()" style="display:none;">Next →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+const allArticles = [
+  {
+    id: 0,
+    date: "3 Juni 2026",
+    image: "images/ev-subsidy.png",
+    title: "Indonesia Launches Large-Scale Electric Vehicle Subsidy Program",
+    easy: {
+      body: "Indonesia has launched a big program to help people buy <b>electric vehicles</b>. The government will provide <b>subsidy</b> to reduce car prices. The program starts in June 2026.\n\nThe plan is to help 200,000 people buy <b>electric vehicles</b>. This will make cars more <b>affordable</b> for families. They are good for the environment because they do not produce pollution.\n\nMany countries around the world are doing the same thing. Indonesia wants to reduce air pollution in cities. This program helps the economy and the environment at the same time.",
+      vocab: [
+        { word: "electric vehicles", pronunciation: "/ɪˈlek.trɪk ˈviː.ə.kəlz/", translation: "kendaraan listrik" },
+        { word: "subsidy", pronunciation: "/ˈsʌb.sə.di/", translation: "subsidi" },
+        { word: "affordable", pronunciation: "/əˈfɔr.də.bəl/", translation: "terjangkau" }
+      ],
+      dialogue: [
+        { speaker: "A", text: "Did you hear about the electric car subsidy?", translation: "Apakah kamu dengar tentang subsidi mobil listrik?" },
+        { speaker: "B", text: "Yes! The government will help people buy electric cars.", translation: "Iya! Pemerintah akan membantu orang membeli mobil listrik." },
+        { speaker: "A", text: "How many cars will get the subsidy?", translation: "Berapa banyak mobil yang akan dapat subsidi?" },
+        { speaker: "B", text: "200,000 cars. This will make them more affordable.", translation: "200,000 mobil. Ini akan membuat mereka lebih terjangkau." },
+        { speaker: "A", text: "That's very good for the environment.", translation: "Itu sangat baik untuk lingkungan." },
+        { speaker: "B", text: "Exactly. Electric cars do not produce pollution.", translation: "Benar sekali. Mobil listrik tidak menghasilkan polusi." },
+        { speaker: "A", text: "When does the program start?", translation: "Kapan program ini dimulai?" },
+        { speaker: "B", text: "It starts this month, in June 2026.", translation: "Dimulai bulan ini, Juni 2026." }
+      ]
+    },
+    medium: {
+      body: "Indonesia's government has announced a comprehensive electric vehicle <b>subsidy</b> program, allocating substantial resources to support the <b>sustainable</b> transportation <b>transition</b>. The <b>initiative</b> targets 200,000 unit sales beginning in June 2026.\n\nThe <b>subsidy</b> mechanism will reduce vehicle acquisition costs, making electric vehicles more accessible to middle-income families. This policy addresses multiple objectives simultaneously: environmental sustainability, reduced urban air pollution, and economic stimulus through increased automotive sales.\n\nThe program represents part of Indonesia's broader energy transition strategy. <b>Infrastructure</b> development for charging stations is being prioritized across major cities. International partnerships support technology transfer and battery production localization.",
+      vocab: [
+        { word: "subsidy", pronunciation: "/ˈsʌb.sə.di/", translation: "subsidi" },
+        { word: "sustainable", pronunciation: "/səˈsteɪ.nə.bəl/", translation: "berkelanjutan" },
+        { word: "initiative", pronunciation: "/ɪˈnɪʃ.ə.tɪv/", translation: "inisiatif" },
+        { word: "infrastructure", pronunciation: "/ˈɪn.frə.strʌk.tʃər/", translation: "infrastruktur" },
+        { word: "transition", pronunciation: "/trænˈzɪʃ.ən/", translation: "transisi" }
+      ],
+      dialogue: [
+        { speaker: "A", text: "The government's EV subsidy program is quite comprehensive.", translation: "Program subsidi EV pemerintah sangat komprehensif." },
+        { speaker: "B", text: "Yes, it targets 200,000 units and reduces car prices significantly.", translation: "Iya, menargetkan 200,000 unit dan mengurangi harga mobil secara signifikan." },
+        { speaker: "A", text: "What are the main objectives of this initiative?", translation: "Apa tujuan utama inisiatif ini?" },
+        { speaker: "B", text: "Environmental sustainability, emission reduction, and economic stimulus.", translation: "Keberlanjutan lingkungan, pengurangan emisi, dan stimulus ekonomi." },
+        { speaker: "A", text: "Is infrastructure development part of the plan?", translation: "Apakah pengembangan infrastruktur bagian dari rencananya?" },
+        { speaker: "B", text: "Absolutely. Charging station infrastructure is being prioritized in major cities.", translation: "Tentu saja. Infrastruktur stasiun pengisian daya diprioritaskan di kota-kota besar." },
+        { speaker: "A", text: "How will this impact Indonesia's energy transition?", translation: "Bagaimana ini akan mempengaruhi transisi energi Indonesia?" },
+        { speaker: "B", text: "It represents significant progress toward sustainable transportation and reduced fossil fuel dependence.", translation: "Ini merepresentasikan kemajuan signifikan menuju transportasi berkelanjutan dan pengurangan ketergantungan bahan bakar fosil." }
+      ]
+    },
+    pro: {
+      body: "Indonesia's electric vehicle <b>subsidy</b> <b>initiative</b> constitutes a multifaceted policy intervention designed to accelerate transportation sector <b>decarbonization</b>. The program allocates budgetary resources to incentivize 200,000 unit adoption, commencing June 2026.\n\nThe <b>subsidy</b> mechanism operates through tiered <b>incentive</b> structures, addressing market failure in the EV adoption curve. This intervention simultaneously pursues environmental externality reduction, urban air quality improvement, and industrial competitiveness enhancement through manufacturing scale-up.\n\nPolicy architecture integrates complementary infrastructure development, particularly charging network expansion. International technology partnerships facilitate battery supply chain <b>localization</b>, reducing import dependence. Modeling projections indicate potential emission reductions equivalent to 2-3 million tons CO₂ annually upon program completion.",
+      vocab: [
+        { word: "subsidy", pronunciation: "/ˈsʌb.sə.di/", translation: "subsidi" },
+        { word: "decarbonization", pronunciation: "/diˌkɑr.bə.nə.ˈzeɪ.ʃən/", translation: "dekarbonisasi" },
+        { word: "incentive", pronunciation: "/ɪnˈsen.tɪv/", translation: "insentif" },
+        { word: "initiative", pronunciation: "/ɪˈnɪʃ.ə.tɪv/", translation: "inisiatif" },
+        { word: "localization", pronunciation: "/ˌloʊ.kəl.aɪˈzeɪ.ʃən/", translation: "lokalisasi" }
+      ],
+      dialogue: [
+        { speaker: "A", text: "The EV subsidy initiative represents multifaceted policy intervention toward decarbonization.", translation: "Inisiatif subsidi EV merepresentasikan intervensi kebijakan multifaset menuju dekarbonisasi." },
+        { speaker: "B", text: "Precisely. It addresses market failure in EV adoption curves through tiered incentive structures.", translation: "Tepat sekali. Ini mengatasi kegagalan pasar dalam kurva adopsi EV melalui struktur insentif berjenjang." },
+        { speaker: "A", text: "What are the environmental externality implications?", translation: "Apa implikasi eksternalitas lingkungan?" },
+        { speaker: "B", text: "Projections indicate 2-3 million tons CO₂ annual reductions upon program completion.", translation: "Proyeksi menunjukkan pengurangan CO₂ tahunan 2-3 juta ton setelah penyelesaian program." },
+        { speaker: "A", text: "How does infrastructure development integrate with the subsidy mechanism?", translation: "Bagaimana pengembangan infrastruktur terintegrasi dengan mekanisme subsidi?" },
+        { speaker: "B", text: "Complementary infrastructure development prioritizes charging network expansion and localization of battery supply chains.", translation: "Pengembangan infrastruktur komplementer memprioritaskan ekspansi jaringan pengisian daya dan lokalisasi rantai pasokan baterai." },
+        { speaker: "A", text: "What role do international partnerships play?", translation: "Peran apa yang dimainkan kemitraan internasional?" },
+        { speaker: "B", text: "They facilitate technology transfer, reducing import dependence and enhancing manufacturing competitiveness.", translation: "Mereka memfasilitasi transfer teknologi, mengurangi ketergantungan impor dan meningkatkan daya saing manufaktur." }
+      ]
+    },
+    flashcards: {
+      easy: [
+        { word: "electric vehicle", translation: "kendaraan listrik" },
+        { word: "subsidy", translation: "subsidi" },
+        { word: "affordable", translation: "terjangkau" },
+        { word: "pollution", translation: "polusi" },
+        { word: "environment", translation: "lingkungan" }
+      ],
+      medium: [
+        { word: "sustainable", translation: "berkelanjutan" },
+        { word: "emission", translation: "emisi" },
+        { word: "infrastructure", translation: "infrastruktur" },
+        { word: "initiative", translation: "inisiatif" },
+        { word: "transition", translation: "transisi" }
+      ],
+      pro: [
+        { word: "decarbonization", translation: "dekarbonisasi" },
+        { word: "incentive", translation: "insentif" },
+        { word: "sustainability", translation: "keberlanjutan" },
+        { word: "localization", translation: "lokalisasi" },
+        { word: "externality", translation: "eksternalitas" }
+      ]
+    },
+    quiz: [
+      { question: "How many electric vehicles will be subsidized?", options: ["100,000", "200,000", "500,000"], correct: 1, explanation: "The government will subsidize 200,000 electric vehicle units starting in June 2026." },
+      { question: "What is a main benefit of electric vehicles?", options: ["More expensive", "Reduce pollution", "Need more fuel"], correct: 1, explanation: "Electric vehicles do not produce pollution, making them better for the environment." },
+      { question: "When does the program start?", options: ["May 2026", "June 2026", "July 2026"], correct: 1, explanation: "The electric vehicle subsidy program starts in June 2026." }
+    ]
+  },
+  {
+    id: 1,
+    date: "2 Juni 2026",
+    image: "images/dino-patti.jpeg",
+    title: "Diplomat Dino Patti Djalal Criticizes President Prabowo's Foreign Travel",
+    easy: {
+      body: "A senior <b>diplomat</b> named Dino Patti Djalal criticized President Prabowo for traveling too much. Dino said that Prabowo spends 1 out of 6 days traveling to foreign countries.\n\nDino is a famous <b>foreign policy</b> expert. He was previously Vice Minister of Foreign Affairs. Now he leads an important think tank about international relations.\n\nCabinet Secretary Teddy Indra Wijaya responded to Dino's <b>criticism</b>. Teddy gave a video response on June 1st. He appreciated Dino's input but also reminded people that Dino's job as Vice Minister was very short - only 3 months.",
+      vocab: [
+        { word: "diplomat", pronunciation: "/ˈdɪp.ləm.æt/", translation: "diplomat" },
+        { word: "foreign policy", pronunciation: "/ˈfɔr.ən ˈpɑl.ə.si/", translation: "kebijakan luar negeri" },
+        { word: "criticism", pronunciation: "/ˈkrɪt.ɪ.sɪz.əm/", translation: "kritik" }
+      ],
+      dialogue: [
+        { speaker: "A", text: "Did you hear about Dino Patti Djalal's criticism?", translation: "Apakah kamu dengar tentang kritik Dino Patti Djalal?" },
+        { speaker: "B", text: "Yes, he criticized President Prabowo's foreign travels.", translation: "Ya, dia mengkritik perjalanan luar negeri Presiden Prabowo." },
+        { speaker: "A", text: "Why did he criticize the President?", translation: "Mengapa dia mengkritik Presiden?" },
+        { speaker: "B", text: "Dino said Prabowo spends too much time traveling abroad.", translation: "Dino bilang Prabowo terlalu banyak waktu perjalanan ke luar negeri." },
+        { speaker: "A", text: "Did the government respond?", translation: "Apakah pemerintah merespons?" },
+        { speaker: "B", text: "Yes, Cabinet Secretary Teddy gave a video response on June 1st.", translation: "Ya, Sekretaris Kabinet Teddy memberikan respons video pada 1 Juni." },
+        { speaker: "A", text: "What did Teddy say?", translation: "Apa yang Teddy katakan?" },
+        { speaker: "B", text: "Teddy appreciated the input but reminded that Dino's job was only 3 months.", translation: "Teddy menghargai masukan tapi mengingatkan jabatan Dino hanya 3 bulan." }
+      ]
+    },
+    medium: {
+      body: "Dino Patti Djalal, a renowned <b>diplomat</b> and foreign policy expert, issued <b>criticism</b> against President Prabowo Subianto regarding the <b>frequency</b> of international travel. On June 2, 2026, Dino stated that since assuming office, Prabowo has spent approximately one-sixth of his time traveling abroad.\n\nDino founded the Foreign Policy Community of Indonesia (FPCI), a prominent think tank focused on international relations issues. His concerns centered on the <b>implications</b> of such <b>diplomatic</b> missions for domestic governance and national priorities.\n\nSecretary of Cabinet Teddy Indra Wijaya responded officially via video on June 1st. While acknowledging Dino's structured and thoughtful recommendations, Teddy referenced Dino's brief tenure as Vice Minister of Foreign Affairs in 2014, lasting only three months.",
+      vocab: [
+        { word: "diplomat", pronunciation: "/ˈdɪp.ləm.æt/", translation: "diplomat" },
+        { word: "criticism", pronunciation: "/ˈkrɪt.ɪ.sɪz.əm/", translation: "kritik" },
+        { word: "frequency", pronunciation: "/ˈfri.kwən.si/", translation: "frekuensi" },
+        { word: "implications", pronunciation: "/ˌɪm.pləˈkeɪ.ʃənz/", translation: "implikasi" },
+        { word: "diplomatic", pronunciation: "/ˌdɪp.ləˈmæt.ɪk/", translation: "diplomatik" }
+      ],
+      dialogue: [
+        { speaker: "A", text: "Dino Patti Djalal's criticism of presidential travel is quite significant.", translation: "Kritik Dino Patti Djalal terhadap perjalanan presidensial cukup signifikan." },
+        { speaker: "B", text: "Yes, he emphasized concerns about the frequency and implications for governance.", translation: "Ya, dia menekankan kekhawatiran tentang frekuensi dan implikasi untuk tata kelola." },
+        { speaker: "A", text: "What is Dino's professional background in foreign policy?", translation: "Apa latar belakang profesional Dino dalam kebijakan luar negeri?" },
+        { speaker: "B", text: "He's a renowned diplomat who founded FPCI, a prominent think tank.", translation: "Dia adalah diplomat terkenal yang mendirikan FPCI, sebuah think tank terkemuka." },
+        { speaker: "A", text: "How did the government respond officially?", translation: "Bagaimana pemerintah merespons secara resmi?" },
+        { speaker: "B", text: "Secretary Teddy acknowledged his input while referencing his brief ministerial tenure.", translation: "Sekretaris Teddy mengakui masukan sambil merujuk pada periode kementerian singkatnya." },
+        { speaker: "A", text: "What was the duration of Dino's tenure as Vice Minister?", translation: "Berapa lama masa jabatan Dino sebagai Wakil Menteri?" },
+        { speaker: "B", text: "Only three months in 2014, an unusually brief period.", translation: "Hanya tiga bulan pada 2014, periode yang tidak biasa singkat." }
+      ]
+    },
+    pro: {
+      body: "Dino Patti Djalal, a distinguished <b>diplomat</b> with <b>substantive</b> expertise in <b>geopolitical</b> and foreign policy domains, articulated critical observations regarding President Prabowo Subianto's frequency of international diplomatic engagement. Dino's quantitative assessment indicated that approximately one-sixth of the presidency has been allocated to <b>transnational</b> mobility.\n\nDino's institutional leadership through the establishment of the Foreign Policy Community of Indonesia (FPCI) demonstrates his enduring commitment to advancing <b>discourse</b> on strategic international relations. His articulated concerns address <b>substantive</b> governance implications and resource allocation efficiency.\n\nSecretary of Cabinet Teddy Indra Wijaya's formal response, disseminated via official digital media on June 1st, acknowledged the intellectual merit of Dino's recommendations while simultaneously invoking Dino's abbreviated tenure as Vice Minister of Foreign Affairs—a transient three-month period in 2014—as a contextual parameter in the rhetorical exchange.",
+      vocab: [
+        { word: "diplomat", pronunciation: "/ˈdɪp.ləm.æt/", translation: "diplomat" },
+        { word: "geopolitical", pronunciation: "/ˌdʒiː.oʊ.pəˈlɪt.ɪ.kəl/", translation: "geopolitik" },
+        { word: "substantive", pronunciation: "/səbˈstæn.tɪv/", translation: "substansial" },
+        { word: "transnational", pronunciation: "/trænsˈnæʃ.ən.əl/", translation: "transnasional" },
+        { word: "discourse", pronunciation: "/ˈdɪs.kɔrs/", translation: "diskursus" }
+      ],
+      dialogue: [
+        { speaker: "A", text: "Dino Patti Djalal's articulation of geopolitical concerns represents substantive diplomatic discourse.", translation: "Artikulasi kekhawatiran geopolitik Dino Patti Djalal merepresentasikan diskursus diplomatik substansial." },
+        { speaker: "B", text: "Indeed, his quantitative assessment demonstrates critical examination of presidential transnational mobility.", translation: "Benar, penilaian kuantitatifnya menunjukkan pemeriksaan kritis mobilitas transnasional presidensial." },
+        { speaker: "A", text: "What institutional mechanisms facilitate Dino's engagement in policy discourse?", translation: "Mekanisme institusional apa yang memfasilitasi keterlibatan Dino dalam diskursus kebijakan?" },
+        { speaker: "B", text: "FPCI serves as a structural conduit for advancing strategic international relations discourse.", translation: "FPCI berfungsi sebagai saluran struktural untuk memajukan diskursus hubungan internasional strategis." },
+        { speaker: "A", text: "How did the governmental apparatus characterize the rhetorical exchange?", translation: "Bagaimana aparatus pemerintah mengkarakterisasi pertukaran retorik?" },
+        { speaker: "B", text: "Teddy's formal response acknowledged intellectual merit while invoking contextual parameters.", translation: "Respons formal Teddy mengakui manfaat intelektual sambil memanggil parameter kontekstual." },
+        { speaker: "A", text: "What temporal framework characterizes Dino's ministerial tenure?", translation: "Kerangka temporal apa yang mencirikan masa jabatan kementerian Dino?" },
+        { speaker: "B", text: "A transient three-month period in 2014, rendered abbreviated through institutional transition mechanisms.", translation: "Periode tiga bulan yang transien pada 2014, dipersingkat melalui mekanisme transisi institusional." }
+      ]
+    },
+    quiz: [
+      { question: "Who criticized President Prabowo's foreign travel?", options: ["Teddy Indra Wijaya", "Dino Patti Djalal", "Pramono Anung"], correct: 1, explanation: "Dino Patti Djalal, a senior diplomat, criticized President Prabowo's frequency of international travel." },
+      { question: "According to Dino, what fraction of Prabowo's time is spent traveling abroad?", options: ["1 out of 4 days", "1 out of 6 days", "1 out of 8 days"], correct: 1, explanation: "Dino stated that Prabowo spends approximately 1 out of 6 days traveling to foreign countries." },
+      { question: "How long was Dino's tenure as Vice Minister of Foreign Affairs?", options: ["6 months", "3 months", "1 year"], correct: 1, explanation: "Dino served as Vice Minister of Foreign Affairs for only three months in 2014." }
+    ]
+  },
+  {
+    id: 2,
+    date: "1 Juni 2026",
+    image: "images/pancasila.jpeg",
+    title: "Hari Lahir Pancasila: Indonesia Celebrates Founding Principles",
+    easy: {
+      body: "Today is Pancasila Day! Pancasila is the foundation of Indonesia. It has five important <b>principles</b>. Indonesia created Pancasila on June 1, 1945.\n\nPancasila teaches <b>unity</b> and <b>diversity</b>. Indonesia has many different religions, languages, and cultures. But all Indonesians follow Pancasila. The five <b>principles</b> are: belief in God, justice for all, <b>unity</b> of Indonesia, democracy through discussion, and social justice.\n\nEvery June 1st, Indonesians celebrate Pancasila. People remember the values and <b>principles</b> that make Indonesia strong. Pancasila teaches that Indonesia is united but also celebrates differences.",
+      vocab: [
+        { word: "diversity", pronunciation: "/daɪ.ˈvɜr.sə.ti/", translation: "keberagaman" },
+        { word: "principle", pronunciation: "/ˈprɪn.sə.pəl/", translation: "prinsip" },
+        { word: "unity", pronunciation: "/ˈjun.ə.ti/", translation: "persatuan" }
+      ],
+      dialogue: [
+        { speaker: "A", text: "Do you know what day is June 1st?", translation: "Apakah kamu tahu hari apa tanggal 1 Juni?" },
+        { speaker: "B", text: "Yes! It's Pancasila Day. It's Indonesia's most important national day.", translation: "Iya! Ini Hari Lahir Pancasila. Ini hari nasional paling penting Indonesia." },
+        { speaker: "A", text: "What is Pancasila?", translation: "Apa itu Pancasila?" },
+        { speaker: "B", text: "Pancasila is the foundation of Indonesia. It has five important principles.", translation: "Pancasila adalah fondasi Indonesia. Ini memiliki lima prinsip penting." },
+        { speaker: "A", text: "What are the five principles?", translation: "Apa lima prinsip itu?" },
+        { speaker: "B", text: "Belief in God, justice, unity, democracy, and social justice.", translation: "Kepercayaan pada Tuhan, keadilan, persatuan, demokrasi, dan keadilan sosial." },
+        { speaker: "A", text: "Why is Pancasila so important?", translation: "Mengapa Pancasila sangat penting?" },
+        { speaker: "B", text: "It unites all Indonesians. We have many religions and languages, but we are one nation.", translation: "Ini menyatukan semua orang Indonesia. Kita punya banyak agama dan bahasa, tapi kita satu bangsa." }
+      ]
+    },
+    medium: {
+      body: "Pancasila Day celebrates the foundation of the Indonesian nation, proclaimed on June 1, 1945. Pancasila consists of five <b>principles</b> that guide the <b>values</b> and ideals of Indonesia.\n\nThe five <b>principles</b> are: belief in one God, humanitarianism and justice, national <b>unity</b>, democracy through deliberation and consensus, and social justice for all. These <b>principles</b> emphasize <b>diversity</b> within <b>unity</b>. Indonesia's national motto, Bhinneka Tunggal Ika, means \"Unity in <b>Diversity</b>.\"\n\nEvery June 1st, Indonesians <b>commemorate</b> Pancasila through flag ceremonies, discussions about national <b>values</b>, and celebrations in schools and government offices. It is a day to reflect on the <b>principles</b> that unite the nation and strengthen national identity.",
+      vocab: [
+        { word: "principle", pronunciation: "/ˈprɪn.sə.pəl/", translation: "prinsip" },
+        { word: "diversity", pronunciation: "/daɪ.ˈvɜr.sə.ti/", translation: "keberagaman" },
+        { word: "commemorate", pronunciation: "/kəˈmem.ə.reɪt/", translation: "memperingati" },
+        { word: "values", pronunciation: "/ˈvæl.juːz/", translation: "nilai-nilai" },
+        { word: "unity", pronunciation: "/ˈjun.ə.ti/", translation: "persatuan" }
+      ],
+      dialogue: [
+        { speaker: "A", text: "What is the significance of Pancasila Day for Indonesia?", translation: "Apa signifikansi Hari Lahir Pancasila untuk Indonesia?" },
+        { speaker: "B", text: "It commemorates the foundation of the nation, proclaimed on June 1, 1945.", translation: "Ini merayakan fondasi bangsa yang diproklamasikan pada 1 Juni 1945." },
+        { speaker: "A", text: "Can you explain the five principles of Pancasila?", translation: "Bisakah kamu jelaskan lima prinsip Pancasila?" },
+        { speaker: "B", text: "They emphasize belief in God, humanitarianism, national unity, democracy, and social justice.", translation: "Mereka menekankan kepercayaan pada Tuhan, kemanusiaan, persatuan nasional, demokrasi, dan keadilan sosial." },
+        { speaker: "A", text: "What does Bhinneka Tunggal Ika mean?", translation: "Apa arti Bhinneka Tunggal Ika?" },
+        { speaker: "B", text: "It means 'Unity in Diversity.' This reflects Indonesia's commitment to honoring differences.", translation: "Berarti 'Persatuan dalam Keberagaman.' Ini mencerminkan komitmen Indonesia untuk menghormati perbedaan." },
+        { speaker: "A", text: "How do Indonesians celebrate Pancasila Day?", translation: "Bagaimana orang Indonesia merayakan Hari Lahir Pancasila?" },
+        { speaker: "B", text: "Through flag ceremonies, national discussions, and reflections on shared values and identity.", translation: "Melalui upacara bendera, diskusi nasional, dan refleksi nilai bersama dan identitas." }
+      ]
+    },
+    pro: {
+      body: "Pancasila Day commemorates the proclamation of the <b>foundational</b> ideological framework of the Indonesian state, articulated on June 1, 1945. Pancasila, comprising five <b>principles</b>, constitutes the philosophical and constitutional basis upon which the Indonesian polity and civic consciousness are constructed.\n\nThe five <b>principles</b>—theistic conviction, humanitarian dignity, national sovereignty, participatory governance, and equitable social distribution—articulate an integrative framework accommodating pluralistic diversity within unified national identity. The axiom Bhinneka Tunggal Ika—\"<b>plurality</b> in <b>solidarity</b>\"—encapsulates this <b>paradigm</b> of differentiated cohesion.\n\nCommemoration of Pancasila Day involves institutional ceremonies, pedagogical discourse on constitutional values, and introspection regarding the mechanisms through which ideological principles sustain national cohesion amidst socio-cultural complexity.",
+      vocab: [
+        { word: "foundational", pronunciation: "/faʊn.ˈdeɪ.ʃən.əl/", translation: "fondasi" },
+        { word: "principles", pronunciation: "/ˈprɪn.sə.pəlz/", translation: "prinsip-prinsip" },
+        { word: "plurality", pronunciation: "/plur.ˈæl.ə.ti/", translation: "keberagaman/pluralitas" },
+        { word: "solidarity", pronunciation: "/sɑl.ɪ.ˈder.ə.ti/", translation: "solidaritas" },
+        { word: "paradigm", pronunciation: "/ˈpær.ə.daɪm/", translation: "paradigma" }
+      ],
+      dialogue: [
+        { speaker: "A", text: "The philosophical architecture of Pancasila represents a distinctive ideological synthesis.", translation: "Arsitektur filosofis Pancasila merepresentasikan sintesis ideologis yang distinktif." },
+        { speaker: "B", text: "Indeed. Its five principles constitute an integrative framework accommodating pluralistic diversity.", translation: "Benar. Lima prinsipnya membentuk kerangka integratif yang mengakomodasi keberagaman pluralistik." },
+        { speaker: "A", text: "How does Bhinneka Tunggal Ika articulate the paradigm of differentiated cohesion?", translation: "Bagaimana Bhinneka Tunggal Ika mengartikulasikan paradigma kohesi yang terdeferensiasi?" },
+        { speaker: "B", text: "It encapsulates the axiom of plurality in solidarity—a unified framework accommodating socio-cultural complexity.", translation: "Ini merangkum aksioma pluralitas dalam solidaritas—kerangka unified yang mengakomodasi kompleksitas sosiokultural." },
+        { speaker: "A", text: "What institutional mechanisms sustain Pancasila's ideological centrality?", translation: "Mekanisme institusional apa yang mempertahankan sentralitas ideologis Pancasila?" },
+        { speaker: "B", text: "Constitutional pedagogy, ceremonial commemoration, and discursive engagement with foundational principles.", translation: "Pedagogi konstitusional, komemoraasi ceremonial, dan engagement diskursif dengan prinsip-prinsip fondasi." },
+        { speaker: "A", text: "How does Pancasila address contemporary socio-political challenges?", translation: "Bagaimana Pancasila mengatasi tantangan sosiopolitik kontemporer?" },
+        { speaker: "B", text: "Through continuous reinterpretation of its principles within evolving national contexts, maintaining ideological coherence.", translation: "Melalui reinterpretasi berkelanjutan dari prinsip-prinsipnya dalam konteks nasional yang berkembang, mempertahankan kohesi ideologis." }
+      ]
+    },
+    quiz: [
+      { question: "When was Pancasila proclaimed?", options: ["June 1, 1944", "June 1, 1945", "June 1, 1946"], correct: 1, explanation: "Pancasila was proclaimed on June 1, 1945, making it the foundational date of Indonesia." },
+      { question: "How many principles does Pancasila have?", options: ["Three", "Four", "Five"], correct: 2, explanation: "Pancasila consists of five principles: belief in God, humanitarianism, national unity, democracy, and social justice." },
+      { question: "What does Bhinneka Tunggal Ika mean?", options: ["God is one", "Unity in diversity", "People are equal"], correct: 1, explanation: "Bhinneka Tunggal Ika means 'Unity in Diversity,' representing Indonesia's commitment to honoring differences while maintaining national unity." }
+    ]
+  }
+];
+
+let currentArticleIndex = 0;
+let currentLevel = 'easy';
+let currentCard = 0;
+let currentQuiz = 0;
+let quizAnswered = false;
+
+function loadArticle(idx) {
+  const a = allArticles[idx];
+  currentArticleIndex = idx;
+  document.getElementById('article-date').innerHTML = `<b>${a.date}</b>`;
+  document.getElementById('article-title').textContent = a.title;
+  const imgEl = document.getElementById('article-image');
+  if (a.image) {
+    imgEl.src = a.image;
+    imgEl.alt = a.title;
+    imgEl.style.display = 'block';
+  } else {
+    imgEl.style.display = 'none';
+  }
+  document.getElementById('article-body').innerHTML = a[currentLevel].body;
+  renderVocab(a[currentLevel].vocab);
+  renderDialogue(a[currentLevel].dialogue);
+  renderFlashcards(a[currentLevel].vocab);
+  renderQuiz(a.quiz);
+  document.getElementById('prevBtn').disabled = idx === allArticles.length - 1;
+  document.getElementById('nextBtn').disabled = idx === 0;
+  document.getElementById('articleSelect').value = idx;
+}
+
+function prevArticle() { if (currentArticleIndex < allArticles.length - 1) loadArticle(currentArticleIndex + 1); }
+function nextArticle() { if (currentArticleIndex > 0) loadArticle(currentArticleIndex - 1); }
+function jumpToArticle(idx) { loadArticle(parseInt(idx)); }
+
+function switchLevel(level, btn) {
+  currentLevel = level;
+  document.querySelectorAll('.level-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  const a = allArticles[currentArticleIndex];
+  document.getElementById('article-body').innerHTML = a[level].body;
+  renderVocab(a[level].vocab);
+  renderDialogue(a[level].dialogue);
+  renderFlashcards(a[level].vocab);
+  currentCard = 0;
+  currentQuiz = 0;
+  quizAnswered = false;
+  renderQuiz(a.quiz);
+  
+  // Auto-expand Article section, collapse others
+  const sections = document.querySelectorAll('.section-content');
+  const toggles = document.querySelectorAll('.section-toggle');
+  sections.forEach((sec, idx) => {
+    if (idx === 0) {
+      // Article section - expand
+      sec.classList.remove('collapsed');
+      toggles[idx].classList.add('open');
+    } else {
+      // Others - collapse
+      sec.classList.add('collapsed');
+      toggles[idx].classList.remove('open');
+    }
+  });
+  
+  // Scroll to top
+  window.scrollTo(0, 0);
+}
+
+function toggleSection(header) {
+  const content = header.nextElementSibling;
+  const toggle = header.querySelector('.section-toggle');
+  content.classList.toggle('collapsed');
+  toggle.classList.toggle('open');
+}
+
+function renderVocab(vocab) {
+  document.getElementById('vocab-list').innerHTML = vocab.map(v => `
+    <div class="vocab-item">
+      <div class="vocab-word">${v.word}</div>
+      <div class="vocab-pronunciation">${v.pronunciation}</div>
+      <div class="vocab-translation">${v.translation}</div>
+    </div>
+  `).join('');
+}
+
+function renderDialogue(dialogue) {
+  document.getElementById('dialogue-section').innerHTML = dialogue.map((d, i) => `
+    <div class="dialogue-bubble speaker-${d.speaker.toLowerCase()}">
+      <div class="bubble speaker-${d.speaker.toLowerCase()}">
+        <div>${d.text}</div>
+        <div class="bubble-translation">${d.translation}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderFlashcards(cards) {
+  currentCard = 0;
+  document.getElementById('flashcard').classList.remove('flipped');
+  if (cards.length > 0) {
+    document.getElementById('card-front-word').textContent = cards[0].word;
+    document.getElementById('card-front-pronunciation').textContent = cards[0].pronunciation;
+    document.getElementById('card-back-translation').textContent = cards[0].translation;
+    document.getElementById('card-counter').textContent = `1/${cards.length}`;
+  }
+  window.currentCards = cards;
+}
+
+function flipCard() { document.getElementById('flashcard').classList.toggle('flipped'); }
+
+function nextCard() {
+  currentCard = (currentCard + 1) % window.currentCards.length;
+  document.getElementById('flashcard').classList.remove('flipped');
+  document.getElementById('card-front-word').textContent = window.currentCards[currentCard].word;
+  document.getElementById('card-front-pronunciation').textContent = window.currentCards[currentCard].pronunciation;
+  document.getElementById('card-back-translation').textContent = window.currentCards[currentCard].translation;
+  document.getElementById('card-counter').textContent = `${currentCard + 1}/${window.currentCards.length}`;
+}
+
+function prevCard() {
+  currentCard = (currentCard - 1 + window.currentCards.length) % window.currentCards.length;
+  document.getElementById('flashcard').classList.remove('flipped');
+  document.getElementById('card-front-word').textContent = window.currentCards[currentCard].word;
+  document.getElementById('card-front-pronunciation').textContent = window.currentCards[currentCard].pronunciation;
+  document.getElementById('card-back-translation').textContent = window.currentCards[currentCard].translation;
+  document.getElementById('card-counter').textContent = `${currentCard + 1}/${window.currentCards.length}`;
+}
+
+function renderQuiz(quiz) {
+  currentQuiz = 0;
+  quizAnswered = false;
+  const q = quiz[0];
+  document.getElementById('quiz-question').textContent = q.question;
+  document.getElementById('quiz-counter').textContent = `Q 1/${quiz.length}`;
+  document.getElementById('quiz-explanation').style.display = 'none';
+  document.getElementById('quiz-result').style.display = 'none';
+  document.getElementById('quiz-options').innerHTML = q.options.map((o, i) => `
+    <button class="quiz-option" onclick="answerQuiz(${i})">${o}</button>
+  `).join('');
+  window.currentQuiz = quiz;
+}
+
+function answerQuiz(idx) {
+  if (quizAnswered) return;
+  quizAnswered = true;
+  const q = window.currentQuiz[currentQuiz];
+  const opts = document.querySelectorAll('.quiz-option');
+  opts[q.correct].classList.add('correct');
+  if (idx !== q.correct) opts[idx].classList.add('wrong');
+  
+  if (currentQuiz < window.currentQuiz.length - 1) {
+    // Not last question - show Next button
+    document.getElementById('quiz-next-btn').style.display = 'block';
+  } else {
+    // Last question - show result immediately
+    setTimeout(() => {
+      currentQuiz++;
+      const score = document.querySelectorAll('.quiz-option.correct').length;
+      document.getElementById('quiz-question').style.display = 'none';
+      document.getElementById('quiz-options').style.display = 'none';
+      document.getElementById('quiz-explanation').style.display = 'none';
+      document.getElementById('quiz-counter').style.display = 'none';
+      document.getElementById('quiz-next-btn').style.display = 'none';
+      
+      document.getElementById('quiz-result-score').textContent = `${score}/${window.currentQuiz.length}`;
+      const message = score === window.currentQuiz.length ? '🎉 Sempurna!' : score >= Math.ceil(window.currentQuiz.length * 0.7) ? '✅ Bagus!' : '📚 Coba lagi!';
+      document.getElementById('quiz-result-message').textContent = message;
+      document.getElementById('quiz-result').style.display = 'block';
+    }, 600);
+  }
+}
+
+function nextQuiz() {
+  currentQuiz++;
+  if (currentQuiz >= window.currentQuiz.length) {
+    // Quiz finished, show results
+    const score = document.querySelectorAll('.quiz-option.correct').length;
+    document.getElementById('quiz-question').style.display = 'none';
+    document.getElementById('quiz-options').style.display = 'none';
+    document.getElementById('quiz-explanation').style.display = 'none';
+    document.getElementById('quiz-counter').style.display = 'none';
+    document.getElementById('quiz-next-btn').style.display = 'none';
+    
+    document.getElementById('quiz-result-score').textContent = `${score}/${window.currentQuiz.length}`;
+    const message = score === window.currentQuiz.length ? '🎉 Sempurna!' : score >= Math.ceil(window.currentQuiz.length * 0.7) ? '✅ Bagus!' : '📚 Coba lagi!';
+    document.getElementById('quiz-result-message').textContent = message;
+    document.getElementById('quiz-result').style.display = 'block';
+  } else {
+    quizAnswered = false;
+    const q = window.currentQuiz[currentQuiz];
+    document.getElementById('quiz-question').textContent = q.question;
+    document.getElementById('quiz-counter').textContent = `Q ${currentQuiz + 1}/${window.currentQuiz.length}`;
+    document.getElementById('quiz-options').innerHTML = q.options.map((o, i) => `
+      <button class="quiz-option" onclick="answerQuiz(${i})">${o}</button>
+    `).join('');
+    document.getElementById('quiz-next-btn').style.display = 'none';
+    document.getElementById('quiz-explanation').style.display = 'none';
+  }
+}
+
+function resetQuiz() {
+  currentQuiz = 0;
+  quizAnswered = false;
+  document.getElementById('quiz-question').style.display = 'block';
+  document.getElementById('quiz-options').style.display = 'block';
+  document.getElementById('quiz-explanation').style.display = 'none';
+  document.getElementById('quiz-counter').style.display = 'block';
+  document.getElementById('quiz-result').style.display = 'none';
+  const q = window.currentQuiz[0];
+  document.getElementById('quiz-question').textContent = q.question;
+  document.getElementById('quiz-counter').textContent = `Q 1/${window.currentQuiz.length}`;
+  document.getElementById('quiz-options').innerHTML = q.options.map((o, i) => `
+    <button class="quiz-option" onclick="answerQuiz(${i})">${o}</button>
+  `).join('');
+}
+
+const select = document.getElementById('articleSelect');
+allArticles.forEach((a, i) => {
+  const opt = document.createElement('option');
+  opt.value = i;
+  opt.textContent = `${a.date} - ${a.title}`;
+  select.appendChild(opt);
+});
+
+loadArticle(0);
+</script>
+
+
+
+</body></html>

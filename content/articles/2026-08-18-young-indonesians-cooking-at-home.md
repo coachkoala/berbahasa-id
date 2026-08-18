@@ -9,32 +9,26 @@ isExample: true
 source:
   name: "Contoh Sumber (Artikel Demo, bukan berita asli)"
   url: "https://example.com"
+news:
+  - "A growing number of young Indonesians are choosing to cook their own meals at home rather than ordering food or eating out every day. Social media has played a big role in this shift: short cooking videos make simple recipes easy to follow, even for people who have never cooked before. Many of these videos focus on cheap, everyday ingredients that are easy to find at local markets."
+  - "Students and young workers say the main reason is money. With prices for eating out rising, cooking at home helps them stick to a tighter budget while still eating well. Several university students mentioned that cooking with friends on weekends has also become a fun, low-cost way to spend time together."
+  - "Nutrition experts say this new habit could bring long-term benefits beyond saving money. Home-cooked meals often contain less oil, sugar, and salt than food from restaurants, which may lead to healthier eating patterns for this generation in the years ahead."
 vocabulary:
   - word: "ingredient"
     phonetic: "/ɪnˈɡriː.di.ənt/"
     meaningId: "bahan (masakan)"
-    exampleEn: "Most recipes only need a few simple ingredients."
-    exampleId: "Sebagian besar resep hanya membutuhkan beberapa bahan sederhana."
   - word: "recipe"
     phonetic: "/ˈres.ə.pi/"
     meaningId: "resep"
-    exampleEn: "She learned the recipe from a short video online."
-    exampleId: "Dia mempelajari resep itu dari video pendek di internet."
   - word: "generation"
     phonetic: "/ˌdʒen.əˈreɪ.ʃən/"
     meaningId: "generasi"
-    exampleEn: "This generation is more interested in cooking than before."
-    exampleId: "Generasi ini lebih tertarik memasak dibanding sebelumnya."
   - word: "budget"
     phonetic: "/ˈbʌdʒ.ɪt/"
     meaningId: "anggaran, budget"
-    exampleEn: "Cooking at home helps them stick to a tight budget."
-    exampleId: "Memasak di rumah membantu mereka menjaga anggaran yang ketat."
   - word: "habit"
     phonetic: "/ˈhæb.ɪt/"
     meaningId: "kebiasaan"
-    exampleEn: "Cooking twice a week has become a new habit for many students."
-    exampleId: "Memasak dua kali seminggu telah menjadi kebiasaan baru bagi banyak mahasiswa."
 practice:
   - en: "More young people in Indonesia are choosing to cook at home instead of ordering food."
     id: "Semakin banyak anak muda di Indonesia memilih memasak di rumah daripada memesan makanan."
@@ -81,10 +75,27 @@ expressions:
     definitionEn: "to be reasonable or understandable"
     exampleEn: "It makes sense to cook when eating out is so expensive."
     exampleId: "Masuk akal untuk memasak ketika makan di luar begitu mahal."
+quiz:
+  - question: "Why are more young Indonesians cooking at home?"
+    options:
+      - "Mainly because of money and rising prices for eating out"
+      - "Because restaurants are closing"
+      - "Because they dislike social media"
+    correctIndex: 0
+    explanation: "Students and young workers say the main reason is money, since prices for eating out are rising."
+  - question: "What has helped make cooking easier to learn?"
+    options:
+      - "Cooking classes at university"
+      - "Short cooking videos on social media"
+      - "Government cooking programs"
+    correctIndex: 1
+    explanation: "Short cooking videos make simple recipes easy to follow, even for people who have never cooked before."
+  - question: "What long-term benefit do nutrition experts mention?"
+    options:
+      - "Home-cooked meals may lead to healthier eating patterns"
+      - "Home cooking always tastes better"
+      - "Home cooking takes less time than eating out"
+    correctIndex: 0
+    explanation: "Home-cooked meals often contain less oil, sugar, and salt, which may lead to healthier eating patterns."
 microExercise: "Ringkas berita ini dalam 1 kalimat versimu sendiri, seolah kamu menceritakannya ke teman."
 ---
-A growing number of young Indonesians are choosing to cook their own meals at home rather than ordering food or eating out every day. Social media has played a big role in this shift: short cooking videos make simple recipes easy to follow, even for people who have never cooked before. Many of these videos focus on cheap, everyday ingredients that are easy to find at local markets.
-
-Students and young workers say the main reason is money. With prices for eating out rising, cooking at home helps them stick to a tighter budget while still eating well. Several university students mentioned that cooking with friends on weekends has also become a fun, low-cost way to spend time together.
-
-Nutrition experts say this new habit could bring long-term benefits beyond saving money. Home-cooked meals often contain less oil, sugar, and salt than food from restaurants, which may lead to healthier eating patterns for this generation in the years ahead.

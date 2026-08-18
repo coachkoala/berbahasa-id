@@ -9,7 +9,9 @@ export function MicroExercise({ slug, prompt }: { slug: string; prompt: string }
 
   useEffect(() => {
     const saved = window.localStorage.getItem(storageKey);
-    if (saved) setValue(saved);
+    if (!saved) return;
+    const frame = requestAnimationFrame(() => setValue(saved));
+    return () => cancelAnimationFrame(frame);
   }, [storageKey]);
 
   useEffect(() => {
