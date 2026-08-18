@@ -8,6 +8,10 @@ readTimeMinutes: 5
 source:
   name: "CNN Indonesia"
   url: "https://www.cnnindonesia.com/ekonomi/20260805104538-532-1388799/ekonomi-ri-tumbuh-529-persen-pada-kuartal-ii-2026"
+coverImage:
+  src: "/images/articles/indonesia-ekonomi-kuartal-2-2026.jpg"
+  alt: "Papan nama kantor Badan Pusat Statistik (BPS)"
+  credit: "Kantor BPS Provinsi Jambi (ilustrasi). Foto: Muhamad Izzul Fiqih / Wikimedia Commons, CC BY-SA 4.0"
 news:
   - en: "Indonesia's Central Statistics Agency (BPS) announced that the country's economy grew by 5.29 percent in the second quarter of 2026 compared to the same period last year. This growth rate was slightly higher than the 5.12 percent recorded in the second quarter of 2025, showing that the economy continued to expand steadily."
     id: "Badan Pusat Statistik (BPS) mengumumkan bahwa perekonomian Indonesia tumbuh 5,29 persen pada kuartal kedua tahun 2026 dibandingkan periode yang sama tahun lalu. Angka pertumbuhan ini sedikit lebih tinggi dibandingkan 5,12 persen yang tercatat pada kuartal kedua 2025, menunjukkan bahwa ekonomi terus berkembang secara stabil."
