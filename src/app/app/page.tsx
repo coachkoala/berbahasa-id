@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getAllArticles } from "@/lib/articles";
+import { Greeting } from "@/components/Greeting";
 
 export default function DashboardPage() {
   const articles = getAllArticles();
@@ -10,12 +11,7 @@ export default function DashboardPage() {
   return (
     <>
       <div className="flex min-w-[280px] flex-1 flex-col gap-5">
-        <div>
-          <h1 className="font-[family-name:var(--font-display)] text-2xl font-bold text-[#111]">
-            Selamat pagi, Alex
-          </h1>
-          <p className="mt-1 text-sm text-[#2B2B2B]">Yuk belajar hal baru hari ini.</p>
-        </div>
+        <Greeting />
 
         {topArticle && (
           <Link
