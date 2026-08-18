@@ -14,6 +14,13 @@ export type VocabularyItem = {
   word: string;
   phonetic?: string;
   meaningId: string;
+  exampleEn: string;
+  exampleId: string;
+};
+
+export type NewsParagraph = {
+  en: string;
+  id: string;
 };
 
 export type PracticeSentence = {
@@ -58,7 +65,7 @@ type ArticleFrontmatter = {
   isExample?: boolean;
   source: ArticleSource;
   coverImage?: CoverImage;
-  news: string[];
+  news: NewsParagraph[];
   vocabulary: VocabularyItem[];
   practice: PracticeSentence[];
   conversation: ConversationLine[];

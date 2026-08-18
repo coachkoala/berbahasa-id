@@ -8,6 +8,12 @@ export function VocabularyList({ items }: { items: VocabularyItem[] }) {
           <div className="text-sm font-semibold text-emerald-700">{item.word}</div>
           {item.phonetic && <div className="mt-0.5 font-mono text-xs text-slate-500">{item.phonetic}</div>}
           <div className="mt-0.5 text-sm text-slate-700">{item.meaningId}</div>
+          {item.exampleEn && (
+            <div className="mt-1.5 border-l-2 border-slate-100 pl-2.5">
+              <p className="text-sm text-slate-600">{item.exampleEn}</p>
+              <p className="text-xs text-slate-400">{item.exampleId}</p>
+            </div>
+          )}
         </div>
       ))}
     </div>

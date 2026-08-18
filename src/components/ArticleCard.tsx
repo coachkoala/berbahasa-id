@@ -39,7 +39,7 @@ export function ArticleCard({ article }: { article: Article }) {
           <p className="mt-1 text-sm text-slate-500">{article.titleId}</p>
         </div>
 
-        <p className="line-clamp-2 text-sm text-slate-600">{article.news[0]}</p>
+        <p className="line-clamp-2 text-sm text-slate-600">{article.news[0]?.en}</p>
 
         <span className="mt-auto text-sm font-medium text-emerald-600 group-hover:underline">
           Baca artikel →
