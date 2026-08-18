@@ -137,6 +137,13 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         <AccordionSection icon="❓" title="Quiz" defaultOpen={false}>
           <Quiz questions={article.quiz} />
         </AccordionSection>
+
+        <Link
+          href={`/articles/${article.slug}/print`}
+          className="flex items-center justify-center gap-2 rounded-2xl border border-dashed border-emerald-300 bg-emerald-50 px-4 py-3.5 text-sm font-semibold text-emerald-700 hover:bg-emerald-100"
+        >
+          📄 Unduh PDF (A5, enak dibaca di HP)
+        </Link>
       </div>
     </article>
   );

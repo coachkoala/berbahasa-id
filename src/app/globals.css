@@ -12,3 +12,10 @@ html {
 body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
+
+@media print {
+  @page {
+    size: A5;
+    margin: 14mm 12mm;
+  }
+}
